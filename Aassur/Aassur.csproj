@@ -56,7 +56,6 @@
 
     <ItemGroup>
       <Folder Include="Core\DataBase\" />
-      <Folder Include="Docs\Database\SQL\" />
     </ItemGroup>
 
 </Project>
