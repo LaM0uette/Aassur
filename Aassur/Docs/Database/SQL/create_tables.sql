@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS `clients`;
 DROP TABLE IF EXISTS `contrats`;
+DROP TABLE IF EXISTS `adress`;
 DROP TABLE IF EXISTS `last_contact`;
 DROP TABLE IF EXISTS `meetings`;
 DROP TABLE IF EXISTS `news`;
@@ -17,7 +18,7 @@ CREATE TABLE `clients`
     `first_name`                  TEXT,
     `last_name`                   TEXT,
     `type_client_id`              INTEGER,
-    `adress`                      TEXT,
+    `adress_id`                   INTEGER,
     `city_id`                     INTEGER,
     `mobile_number`               TEXT,
     `fixe_number`                 TEXT,
@@ -51,6 +52,14 @@ CREATE TABLE `contrats`
     FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`),
     FOREIGN KEY (`type_contrats_id`) REFERENCES `l_type_contrats` (`id`),
     FOREIGN KEY (`companie_id`) REFERENCES `l_companies` (`id`)
+);
+
+CREATE TABLE `adress`
+(
+    `id`      INTEGER PRIMARY KEY,
+    `adress`  TEXT,
+    `coord_x` DOUBLE,
+    `coord_y` DOUBLE
 );
 
 CREATE TABLE `last_contact`
