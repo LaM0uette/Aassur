@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:compatibility="using:Microsoft.Maui.Controls.Compatibility"
+             xmlns:components="using:Aassur.Resources.Components"
+             x:Class="Aassur.MainPage"
+             Title="Aassur"
+             Shell.NavBarIsVisible="false">
+
+    <ScrollView BackgroundColor="{StaticResource H1Primary}">
+        <components:SearchablePersonListView x:Name="searchablePersonListView"/>
+    </ScrollView>
+
+</ContentPage>
