@@ -1,3 +1,15 @@
+DROP TABLE IF EXISTS `clients`;
+DROP TABLE IF EXISTS `contrats`;
+DROP TABLE IF EXISTS `last_contact`;
+DROP TABLE IF EXISTS `meetings`;
+DROP TABLE IF EXISTS `news`;
+DROP TABLE IF EXISTS `l_civility`;
+DROP TABLE IF EXISTS `l_type_client`;
+DROP TABLE IF EXISTS `l_city`;
+DROP TABLE IF EXISTS `l_family_status`;
+DROP TABLE IF EXISTS `l_type_contrats`;
+DROP TABLE IF EXISTS `l_companies`;
+
 CREATE TABLE `clients`
 (
     `id`                          INTEGER PRIMARY KEY,
@@ -80,8 +92,8 @@ CREATE TABLE `l_type_client`
 CREATE TABLE `l_city`
 (
     `id`          INTEGER PRIMARY KEY,
-    `insee`       INTEGER,
-    `postal_code` INTEGER,
+    `insee`       TEXT,
+    `postal_code` TEXT,
     `name`        TEXT,
     `coord_x`     REAL,
     `coord_y`     REAL
