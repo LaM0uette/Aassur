@@ -1,11 +1,11 @@
 ﻿DELETE FROM `clients`;
-DELETE FROM `contrats`;
-DELETE FROM `last_contact`;
+DELETE FROM `contracts`;
+DELETE FROM `last_contacts`;
 DELETE FROM `meetings`;
 DELETE FROM `news`;
 DELETE FROM `l_civility`;
 DELETE FROM `l_type_client`;
 DELETE FROM `l_city`;
 DELETE FROM `l_family_status`;
-DELETE FROM `l_type_contrats`;
-DELETE FROM `l_companies`;
+DELETE FROM `l_type_contract`;
+DELETE FROM `l_company`;
