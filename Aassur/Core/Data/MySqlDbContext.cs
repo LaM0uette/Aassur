@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aassur.Core.Data;
 
-public class SqlServerDbContext : DbContext
+public class MySqlDbContext : DbContext
 {
-    public SqlServerDbContext(DbContextOptions<SqlServerDbContext> options) : base(options)
+    public MySqlDbContext(DbContextOptions<MySqlDbContext> options) : base(options)
     {
     }
 

@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS `l_company`;
 
 CREATE TABLE `clients`
 (
-    `id`                          INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`                          INTEGER PRIMARY KEY AUTO_INCREMENT,
     `civility_id`                 INTEGER,
     `first_name`                  TEXT,
     `last_name`                   TEXT,
@@ -43,7 +43,7 @@ CREATE TABLE `clients`
 
 CREATE TABLE `contracts`
 (
-    `id`               INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`               INTEGER PRIMARY KEY AUTO_INCREMENT,
     `client_id`        INTEGER,
     `type_contract_id` INTEGER,
     `company_id`       INTEGER,
@@ -57,7 +57,7 @@ CREATE TABLE `contracts`
 
 CREATE TABLE `adress`
 (
-    `id`      INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`      INTEGER PRIMARY KEY AUTO_INCREMENT,
     `adress`  TEXT,
     `coord_x` DOUBLE,
     `coord_y` DOUBLE
@@ -65,7 +65,7 @@ CREATE TABLE `adress`
 
 CREATE TABLE `last_contacts`
 (
-    `id`        INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`        INTEGER PRIMARY KEY AUTO_INCREMENT,
     `client_id` INTEGER,
     `date`      DATE,
     `mode`      TEXT,
@@ -75,33 +75,33 @@ CREATE TABLE `last_contacts`
 
 CREATE TABLE `meetings`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`   INTEGER PRIMARY KEY AUTO_INCREMENT,
     `date` DATE,
     `name` TEXT
 );
 
 CREATE TABLE `news`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`   INTEGER PRIMARY KEY AUTO_INCREMENT,
     `date` DATE,
     `note` TEXT
 );
 
 CREATE TABLE `l_civility`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`   INTEGER PRIMARY KEY AUTO_INCREMENT,
     `name` TEXT
 );
 
 CREATE TABLE `l_type_client`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`   INTEGER PRIMARY KEY AUTO_INCREMENT,
     `name` TEXT
 );
 
 CREATE TABLE `l_city`
 (
-    `id`          INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`          INTEGER PRIMARY KEY AUTO_INCREMENT,
     `insee`       TEXT,
     `postal_code` TEXT,
     `name`        TEXT,
@@ -111,19 +111,19 @@ CREATE TABLE `l_city`
 
 CREATE TABLE `l_family_status`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`   INTEGER PRIMARY KEY AUTO_INCREMENT,
     `name` TEXT
 );
 
 CREATE TABLE `l_type_contract`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`   INTEGER PRIMARY KEY AUTO_INCREMENT,
     `name` TEXT
 );
 
 CREATE TABLE `l_company`
 (
-    `id`      INTEGER PRIMARY KEY AUTOINCREMENT,
+    `id`      INTEGER PRIMARY KEY AUTO_INCREMENT,
     `name`    TEXT,
     `partner` INTEGER
 );

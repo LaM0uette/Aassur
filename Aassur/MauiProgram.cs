@@ -9,12 +9,16 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var sqliteDbPath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Core", "DataBase", "dataBase.db");
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Core", "DataBase", "Aassur.db");
         
         var builder = MauiApp.CreateBuilder();
         
         builder.Services.AddDbContext<SqliteDbContext>(options =>
             options.UseSqlite($"Data Source={sqliteDbPath}"));
+        
+        builder.Services.AddDbContext<MySqlDbContext>(options =>
+            options.UseMySql("Server=localhost;Database=aassur;Uid=root;Pwd=2001;", 
+                new MySqlServerVersion(new Version(8, 0, 33))));
         
         builder
             .UseMauiApp<App>()
