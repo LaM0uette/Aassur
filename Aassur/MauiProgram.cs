@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Aassur.Core.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Aassur;
 
@@ -6,7 +8,14 @@ public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
+        var sqliteDbPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Core", "DataBase", "dataBase.db");
+        
         var builder = MauiApp.CreateBuilder();
+        
+        builder.Services.AddDbContext<SqliteDbContext>(options =>
+            options.UseSqlite($"Data Source={sqliteDbPath}"));
+        
         builder
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
