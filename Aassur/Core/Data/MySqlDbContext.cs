@@ -10,4 +10,10 @@ public class MySqlDbContext : DbContext
     }
 
     public DbSet<Client> Clients { get; set; }
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseMySql("Server=localhost;Database=aassur;Uid=root;Pwd=2001;", 
+            new MySqlServerVersion(new Version(8, 0, 33)));
+    }
 }

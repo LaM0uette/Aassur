@@ -1,4 +1,5 @@
 ﻿using Aassur.Core.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aassur.Core.Services.Repository;
 
@@ -11,28 +12,35 @@ public class RepositorySQLite<T> : IRepository<T> where T : class
         _dbContext = dbContext;
     }
 
-    public Task<List<T>> GetAllAsync()
+    public async Task<List<T>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _dbContext.Set<T>().ToListAsync();
     }
 
-    public Task<T> GetAsync(int id)
+    public async Task<T> GetAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Set<T>().FindAsync(id);
     }
 
-    public Task AddAsync(T entity)
+    public async Task AddAsync(T entity)
     {
-        throw new NotImplementedException();
+        await _dbContext.Set<T>().AddAsync(entity);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task UpdateAsync(T entity)
+    public async Task UpdateAsync(T entity)
     {
-        throw new NotImplementedException();
+        _dbContext.Set<T>().Update(entity);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        var entity = await _dbContext.Set<T>().FindAsync(id);
+        if (entity != null)
+        {
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
