@@ -56,7 +56,7 @@
 
     <ItemGroup>
       <Folder Include="Core\Data\" />
-      <Folder Include="Core\Services\Repository\" />
+      <Folder Include="Core\Services\" />
       <Folder Include="ViewModel\" />
       <Folder Include="View\" />
     </ItemGroup>
