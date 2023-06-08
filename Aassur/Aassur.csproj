@@ -55,6 +55,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Core\Data\" />
+      <Folder Include="Core\Services\Repository\" />
+      <Folder Include="ViewModel\" />
       <Folder Include="View\" />
     </ItemGroup>
 
