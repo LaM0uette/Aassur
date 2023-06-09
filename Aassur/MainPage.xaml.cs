@@ -30,7 +30,6 @@ public partial class MainPage : ContentPage
         // Create a new client
         var client = new Client 
         { 
-            Id = count, 
             FirstName = "John", 
             LastName = "Doe" 
         };
