@@ -52,13 +52,20 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Core\Data\" />
-      <Folder Include="Core\Services\" />
       <Folder Include="ViewModel\" />
       <Folder Include="View\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Core\DataBase\Aassur.db" />
+      <Resource Include="Core\DataBase\Aassur.db">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
     </ItemGroup>
 
 </Project>
