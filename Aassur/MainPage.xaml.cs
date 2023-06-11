@@ -1,14 +1,45 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Aassur.Core.Model;
+using MySql.Data.MySqlClient;
+using SQLite;
 
 namespace Aassur;
 
 public partial class MainPage : ContentPage
 {
     int count = 0;
+    private SQLiteConnection conn;
 
     public MainPage()
     {
         InitializeComponent();
+    }
+    
+    private void Init()
+    {
+        if (conn != null)
+            return;
+
+        conn = new SQLiteConnection("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
+        conn.CreateTable<Client>();
+        
+        
+    }
+    public void AddNewPerson(string name)
+    {
+        int result = 0;
+        try
+        {
+            Init();
+
+            if (string.IsNullOrEmpty(name))
+                throw new Exception("Valid name required");
+
+            result = conn.Insert(new Client { FirstName = name });
+        }
+        catch (Exception)
+        {
+            //
+        }
     }
 
     private void OnCounterClicked(object sender, EventArgs e)
@@ -21,6 +52,8 @@ public partial class MainPage : ContentPage
             CounterBtn.Text = $"Clicked {count} times";
 
         SemanticScreenReader.Announce(CounterBtn.Text);
+        
+        AddNewPerson("Johnny");
         
         var connStr = "server=localhost;user=root;database=aassur;port=3306;password=2001";
         
