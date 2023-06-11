@@ -1,4 +1,5 @@
 ﻿using Aassur.Core.Model;
+using Aassur.Core.Services;
 using MySql.Data.MySqlClient;
 using SQLite;
 
@@ -7,7 +8,7 @@ namespace Aassur;
 public partial class MainPage : ContentPage
 {
     int count = 0;
-    private SQLiteConnection conn;
+    private IRepository<Client> _clientRepository;
 
     public MainPage()
     {
@@ -16,30 +17,23 @@ public partial class MainPage : ContentPage
     
     private void Init()
     {
-        if (conn != null)
+        if (_clientRepository != null)
             return;
-
-        conn = new SQLiteConnection("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
-        conn.CreateTable<Client>();
         
-        
+        _clientRepository = new SqliteRepository<Client>("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
     }
-    public void AddNewPerson(string name)
+    public async void AddNewPerson(string name)
     {
-        int result = 0;
-        try
-        {
-            Init();
-
-            if (string.IsNullOrEmpty(name))
-                throw new Exception("Valid name required");
-
-            result = conn.Insert(new Client { FirstName = name });
-        }
-        catch (Exception)
-        {
-            //
-        }
+        Init();
+        
+        // Create a new client
+        var client = new Client 
+        { 
+            Id = count, 
+            FirstName = "Salut", 
+            LastName = "CaVa" 
+        };
+        await _clientRepository.AddAsync(client);
     }
 
     private void OnCounterClicked(object sender, EventArgs e)
