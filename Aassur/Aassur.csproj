@@ -16,7 +16,7 @@
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.aassur</ApplicationId>
-        <ApplicationIdGuid>48B674B5-023C-49F9-8970-0994D09CEE90</ApplicationIdGuid>
+        <ApplicationIdGuid>75C6CDFF-4809-4DA8-9CE3-BB9597E6A11B</ApplicationIdGuid>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -49,23 +49,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
-        <PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Core\Data\" />
-      <Folder Include="ViewModel\" />
-      <Folder Include="View\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Core\DataBase\Aassur.db" />
-      <Resource Include="Core\DataBase\Aassur.db">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
+        <PackageReference Include="MySql.Data" Version="8.0.33" />
     </ItemGroup>
 
 </Project>
