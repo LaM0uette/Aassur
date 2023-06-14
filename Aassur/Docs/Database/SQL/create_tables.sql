@@ -61,6 +61,10 @@ CREATE TABLE `Contract`
     foreign key (`TypeContractId`) references `ListTypeContract` (`Id`),
     foreign key (`CompanyId`) references `ListCompany` (`Id`)
 );
+CREATE INDEX Idx_Contract_Id ON Contract (Id);
+CREATE INDEX Idx_Contract_ClientId ON Contract (ClientId);
+CREATE INDEX Idx_Contract_TypeContractId ON Contract (TypeContractId);
+CREATE INDEX Idx_Contract_CompanyId ON Contract (CompanyId);
 
 CREATE TABLE `Address`
 (
@@ -69,6 +73,7 @@ CREATE TABLE `Address`
     `CoordX`  double,
     `CoordY`  double
 );
+CREATE INDEX Idx_Address_Id ON Address (Id);
 
 CREATE TABLE `LastContact`
 (
@@ -79,6 +84,8 @@ CREATE TABLE `LastContact`
     `Note`     varchar,
     foreign key (`ClientId`) references `Client` (`Id`)
 );
+CREATE INDEX Idx_LastContact_Id ON LastContact (Id);
+CREATE INDEX Idx_LastContact_ClientId ON LastContact (ClientId);
 
 CREATE TABLE `Meeting`
 (
@@ -86,6 +93,7 @@ CREATE TABLE `Meeting`
     `Date` bigint,
     `Name` varchar
 );
+CREATE INDEX Idx_Meeting_Id ON Meeting (Id);
 
 CREATE TABLE `News`
 (
@@ -93,18 +101,21 @@ CREATE TABLE `News`
     `Date` bigint,
     `Note` varchar
 );
+CREATE INDEX Idx_News_Id ON News (Id);
 
 CREATE TABLE ListCivility
 (
     `Id`   integer primary key autoincrement,
     `Name` varchar(3)
 );
+CREATE INDEX Idx_ListCivility_Id ON ListCivility (Id);
 
 CREATE TABLE `ListTypeClient`
 (
     `Id`   integer primary key autoincrement,
     `Name` varchar
 );
+CREATE INDEX Idx_ListTypeClient_Id ON ListTypeClient (Id);
 
 CREATE TABLE `ListCity`
 (
@@ -115,18 +126,21 @@ CREATE TABLE `ListCity`
     `CoordX`     double,
     `CoordY`     double
 );
+CREATE INDEX Idx_ListCity_Id ON ListCity (Id);
 
 CREATE TABLE `ListFamilyStatus`
 (
     `Id`   integer primary key autoincrement,
     `Name` varchar
 );
+CREATE INDEX Idx_ListFamilyStatus_Id ON ListFamilyStatus (Id);
 
 CREATE TABLE `ListTypeContract`
 (
     `Id`   integer primary key autoincrement,
     `Name` varchar
 );
+CREATE INDEX Idx_ListTypeContract_Id ON ListTypeContract (Id);
 
 CREATE TABLE `ListCompany`
 (
@@ -134,3 +148,4 @@ CREATE TABLE `ListCompany`
     `Name`    varchar,
     `Partner` integer(1)
 );
+CREATE INDEX Idx_ListCompany_Id ON ListCompany (Id);

@@ -1,11 +1,33 @@
-﻿DELETE FROM `clients`;
-DELETE FROM `contracts`;
-DELETE FROM `last_contacts`;
-DELETE FROM `meetings`;
-DELETE FROM `news`;
-DELETE FROM `l_civility`;
-DELETE FROM `l_type_client`;
-DELETE FROM `l_city`;
-DELETE FROM `l_family_status`;
-DELETE FROM `l_type_contract`;
-DELETE FROM `l_company`;
+﻿DELETE FROM `Client`;
+DELETE FROM `Contract`;
+DELETE FROM `Address`;
+DELETE FROM `LastContact`;
+DELETE FROM `Meeting`;
+DELETE FROM `News`;
+DELETE FROM `ListCivility`;
+DELETE FROM `ListTypeClient`;
+DELETE FROM `ListCity`;
+DELETE FROM `ListFamilyStatus`;
+DELETE FROM `ListTypeContract`;
+
+DELETE FROM SQLITE_SEQUENCE WHERE name='Client';
+DELETE FROM SQLITE_SEQUENCE WHERE name='Contract';
+DELETE FROM SQLITE_SEQUENCE WHERE name='Address';
+DELETE FROM SQLITE_SEQUENCE WHERE name='LastContact';
+DELETE FROM SQLITE_SEQUENCE WHERE name='Meeting';
+DELETE FROM SQLITE_SEQUENCE WHERE name='News';
+DELETE FROM SQLITE_SEQUENCE WHERE name='ListCivility';
+DELETE FROM SQLITE_SEQUENCE WHERE name='ListTypeClient';
+DELETE FROM SQLITE_SEQUENCE WHERE name='ListCity';
+DELETE FROM SQLITE_SEQUENCE WHERE name='ListFamilyStatus';
+DELETE FROM SQLITE_SEQUENCE WHERE name='ListTypeContract';
+
+
+
+
+
+
+
+
+
+
