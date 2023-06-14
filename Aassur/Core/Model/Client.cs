@@ -6,12 +6,12 @@ namespace Aassur.Core.Model;
 public class Client : IIdentifiable
 {
     [PrimaryKey, AutoIncrement] public int Id { get; set; }
-    [Indexed] public int CivilityId { get; set; }
+    public int CivilityId { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public int TypeClientId { get; set; }
-    public int AdressId { get; set; }
-    public int CityId { get; set; }
+    public int? AdressId { get; set; }
+    public int? CityId { get; set; }
     public string MobileNumber { get; set; }
     public string FixeNumber { get; set; }
     public string Mail { get; set; }

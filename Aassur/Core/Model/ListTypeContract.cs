@@ -3,8 +3,8 @@ using SQLite;
 
 namespace Aassur.Core.Model;
 
-public class ListCivility : IIdentifiable
+public class ListTypeContract : IIdentifiable
 {
     [PrimaryKey, AutoIncrement] public int Id { get; set; }
-    [MaxLength(3)] public string Name { get; set; }
+    public string Name { get; set; }
 }

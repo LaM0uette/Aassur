@@ -1,15 +1,15 @@
 DROP TABLE IF EXISTS `Client`;
-DROP TABLE IF EXISTS `contracts`;
-DROP TABLE IF EXISTS `adress`;
-DROP TABLE IF EXISTS `last_contacts`;
-DROP TABLE IF EXISTS `meetings`;
-DROP TABLE IF EXISTS `news`;
-DROP TABLE IF EXISTS ListCivility;
-DROP TABLE IF EXISTS `l_type_client`;
-DROP TABLE IF EXISTS `l_city`;
-DROP TABLE IF EXISTS `l_family_status`;
-DROP TABLE IF EXISTS `l_type_contract`;
-DROP TABLE IF EXISTS `l_company`;
+DROP TABLE IF EXISTS `Contract`;
+DROP TABLE IF EXISTS `Address`;
+DROP TABLE IF EXISTS `LastContact`;
+DROP TABLE IF EXISTS `Meeting`;
+DROP TABLE IF EXISTS `News`;
+DROP TABLE IF EXISTS `ListCivility`;
+DROP TABLE IF EXISTS `ListTypeClient`;
+DROP TABLE IF EXISTS `ListCity`;
+DROP TABLE IF EXISTS `ListFamilyStatus`;
+DROP TABLE IF EXISTS `ListTypeContract`;
+DROP TABLE IF EXISTS `ListCompany`;
 
 CREATE TABLE `Client`
 (
@@ -18,7 +18,7 @@ CREATE TABLE `Client`
     `FirstName`                varchar,
     `LastName`                 varchar,
     `TypeClientId`             integer,
-    `AdressId`                 integer,
+    `AddressId`                integer,
     `CityId`                   integer,
     `MobileNumber`             varchar,
     `FixeNumber`               varchar,
@@ -34,96 +34,103 @@ CREATE TABLE `Client`
     `Origin`                   varchar,
     `Note`                     varchar,
     foreign key (`CivilityId`) references ListCivility (`Id`),
-    foreign key (`TypeClientId`) references `l_type_client` (`id`),
-    foreign key (`AdressId`) references `adress` (`id`),
-    foreign key (`CityId`) references `l_city` (`id`),
-    foreign key (`FamilyStatusId`) references `l_family_status` (`id`),
-    foreign key (`RelatedCustomersClientId`) references `Client` (`id`)
+    foreign key (`TypeClientId`) references `ListTypeClient` (`Id`),
+    foreign key (`AddressId`) references `Address` (`Id`),
+    foreign key (`CityId`) references `ListCity` (`Id`),
+    foreign key (`FamilyStatusId`) references `ListFamilyStatus` (`Id`),
+    foreign key (`RelatedCustomersClientId`) references `Client` (`Id`)
+);
+CREATE INDEX Idx_Client_Id ON Client (Id);
+CREATE INDEX Idx_Client_CivilityId ON Client (CivilityId);
+CREATE INDEX Idx_Client_TypeClientId ON Client (TypeClientId);
+CREATE INDEX Idx_Client_AddressId ON Client (AddressId);
+CREATE INDEX Idx_Client_CityId ON Client (CityId);
+CREATE INDEX Idx_Client_FamilyStatusId ON Client (FamilyStatusId);
+CREATE INDEX Idx_Client_RelatedCustomersClientId ON Client (RelatedCustomersClientId);
+
+CREATE TABLE `Contract`
+(
+    `Id`             integer primary key autoincrement,
+    `ClientId`       integer,
+    `TypeContractId` integer,
+    `CompanyId`      integer,
+    `ContractName`   varchar,
+    `Encours`        integer,
+    `OpeningDate`    bigint,
+    foreign key (`ClientId`) references `Client` (`Id`),
+    foreign key (`TypeContractId`) references `ListTypeContract` (`Id`),
+    foreign key (`CompanyId`) references `ListCompany` (`Id`)
 );
 
-CREATE TABLE `contracts`
+CREATE TABLE `Address`
 (
-    `id`               INTEGER PRIMARY KEY AUTOINCREMENT,
-    `client_id`        INTEGER,
-    `type_contract_id` INTEGER,
-    `company_id`       INTEGER,
-    `contract_name`    TEXT,
-    `encours`          INTEGER,
-    `opening_date`     DATE,
-    FOREIGN KEY (`client_id`) REFERENCES `Client` (`id`),
-    FOREIGN KEY (`type_contract_id`) REFERENCES `l_type_contract` (`id`),
-    FOREIGN KEY (`company_id`) REFERENCES `l_company` (`id`)
+    `Id`      integer primary key autoincrement,
+    `Name`    varchar,
+    `CoordX`  double,
+    `CoordY`  double
 );
 
-CREATE TABLE `adress`
+CREATE TABLE `LastContact`
 (
-    `id`      INTEGER PRIMARY KEY AUTOINCREMENT,
-    `adress`  TEXT,
-    `coord_x` DOUBLE,
-    `coord_y` DOUBLE
+    `Id`       integer primary key autoincrement,
+    `ClientId` integer,
+    `Date`     bigint,
+    `Mode`     varchar,
+    `Note`     varchar,
+    foreign key (`ClientId`) references `Client` (`Id`)
 );
 
-CREATE TABLE `last_contacts`
+CREATE TABLE `Meeting`
 (
-    `id`        INTEGER PRIMARY KEY AUTOINCREMENT,
-    `client_id` INTEGER,
-    `date`      DATE,
-    `mode`      TEXT,
-    `note`      TEXT,
-    FOREIGN KEY (`client_id`) REFERENCES `Client` (`id`)
+    `Id`   integer primary key autoincrement,
+    `Date` bigint,
+    `Name` varchar
 );
 
-CREATE TABLE `meetings`
+CREATE TABLE `News`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
-    `date` DATE,
-    `name` TEXT
-);
-
-CREATE TABLE `news`
-(
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
-    `date` DATE,
-    `note` TEXT
+    `Id`   integer primary key autoincrement,
+    `Date` bigint,
+    `Note` varchar
 );
 
 CREATE TABLE ListCivility
 (
     `Id`   integer primary key autoincrement,
+    `Name` varchar(3)
+);
+
+CREATE TABLE `ListTypeClient`
+(
+    `Id`   integer primary key autoincrement,
     `Name` varchar
 );
 
-CREATE TABLE `l_type_client`
+CREATE TABLE `ListCity`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
-    `name` TEXT
+    `Id`         integer primary key autoincrement,
+    `Insee`      varchar(5),
+    `PostalCode` varchar(5),
+    `Name`       varchar,
+    `CoordX`     double,
+    `CoordY`     double
 );
 
-CREATE TABLE `l_city`
+CREATE TABLE `ListFamilyStatus`
 (
-    `id`          INTEGER PRIMARY KEY AUTOINCREMENT,
-    `insee`       TEXT,
-    `postal_code` TEXT,
-    `name`        TEXT,
-    `coord_x`     REAL,
-    `coord_y`     REAL
+    `Id`   integer primary key autoincrement,
+    `Name` varchar
 );
 
-CREATE TABLE `l_family_status`
+CREATE TABLE `ListTypeContract`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
-    `name` TEXT
+    `Id`   integer primary key autoincrement,
+    `Name` varchar
 );
 
-CREATE TABLE `l_type_contract`
+CREATE TABLE `ListCompany`
 (
-    `id`   INTEGER PRIMARY KEY AUTOINCREMENT,
-    `name` TEXT
-);
-
-CREATE TABLE `l_company`
-(
-    `id`      INTEGER PRIMARY KEY AUTOINCREMENT,
-    `name`    TEXT,
-    `partner` INTEGER
+    `Id`      integer primary key autoincrement,
+    `Name`    varchar,
+    `Partner` integer(1)
 );

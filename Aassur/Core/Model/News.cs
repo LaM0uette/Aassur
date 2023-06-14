@@ -3,8 +3,9 @@ using SQLite;
 
 namespace Aassur.Core.Model;
 
-public class ListCivility : IIdentifiable
+public class News : IIdentifiable
 {
     [PrimaryKey, AutoIncrement] public int Id { get; set; }
-    [MaxLength(3)] public string Name { get; set; }
+    public DateTime Date { get; set; }
+    public string Note { get; set; }
 }

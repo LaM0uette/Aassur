@@ -34,8 +34,6 @@ public partial class MainPage : ContentPage
             Id = count,
             CivilityId = 1,
             TypeClientId = 1,
-            AdressId = 1,
-            CityId = 1,
             FamilyStatusId = 1,
             FirstName = "Salut",
             LastName = "CaVa",
