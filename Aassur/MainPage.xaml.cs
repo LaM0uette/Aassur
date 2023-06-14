@@ -14,23 +14,30 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
     }
-    
+
     private void Init()
     {
         if (_clientRepository != null)
             return;
-        
+
+        #pragma foreign_keys = ON;
         _clientRepository = new SqliteRepository<Client>("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
     }
+
     public async void AddNewPerson(string name)
     {
         Init();
-        
+
         // Create a new client
-        var client = new Client 
-        { 
-            Id = count, 
-            FirstName = "Salut", 
+        var client = new Client
+        {
+            Id = count,
+            CivilityId = 1,
+            TypeClientId = 1,
+            AdressId = 1,
+            CityId = 1,
+            FamilyStatusId = 1,
+            FirstName = "Salut",
             LastName = "CaVa",
             DateOfBirth = DateTime.Now
         };
@@ -39,7 +46,7 @@ public partial class MainPage : ContentPage
 
     private void OnCounterClicked(object sender, EventArgs e)
     {
-         count++;
+        count++;
 
         if (count == 1)
             CounterBtn.Text = $"Clicked {count} time";
@@ -47,11 +54,12 @@ public partial class MainPage : ContentPage
             CounterBtn.Text = $"Clicked {count} times";
 
         SemanticScreenReader.Announce(CounterBtn.Text);
-        
+
         AddNewPerson("Johnny");
-        
+        return;
+
         var connStr = "server=localhost;user=root;database=aassur;port=3306;password=2001";
-        
+
         using (var conn = new MySqlConnection(connStr))
         {
             conn.Open();
@@ -66,7 +74,7 @@ public partial class MainPage : ContentPage
 
                 cmd.ExecuteNonQuery();
             }
-            
+
             using (var cmd = new MySqlCommand("SELECT * FROM client", conn))
             {
                 using (var reader = cmd.ExecuteReader())
