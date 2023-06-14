@@ -31,7 +31,8 @@ public partial class MainPage : ContentPage
         { 
             Id = count, 
             FirstName = "Salut", 
-            LastName = "CaVa" 
+            LastName = "CaVa",
+            DateOfBirth = DateTime.Now
         };
         await _clientRepository.AddAsync(client);
     }
