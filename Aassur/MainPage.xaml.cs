@@ -1,7 +1,6 @@
 ﻿using Aassur.Core.Model;
 using Aassur.Core.Services;
 using MySql.Data.MySqlClient;
-using SQLite;
 
 namespace Aassur;
 
@@ -17,10 +16,9 @@ public partial class MainPage : ContentPage
 
     private void Init()
     {
-        if (_clientRepository != null)
+        if (_clientRepository is not null)
             return;
 
-        #pragma foreign_keys = ON;
         _clientRepository = new SqliteRepository<Client>("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
     }
 
