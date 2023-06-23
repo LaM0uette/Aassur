@@ -2,9 +2,9 @@
 
 namespace Aassur.Core.Services;
 
-public class ClientSqliteRepository : SqliteRepository<Client>, IRepository<Client>
+public class ClientSqliteRepository : SqliteRepository<Client>
 {
-    public ClientSqliteRepository(string dbPath) : base(dbPath)
+    public ClientSqliteRepository() : base()
     {
     }
 }

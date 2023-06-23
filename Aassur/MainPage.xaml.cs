@@ -5,41 +5,28 @@ namespace Aassur;
 
 public partial class MainPage : ContentPage
 {
-    int count;
-    private IRepository<Client> _clientRepository;
+    private int count;
+    private readonly IRepository<Client> _clientRepository;
 
     public MainPage()
     {
         InitializeComponent();
+        _clientRepository = new ClientSqliteRepository();
     }
 
     private void OnCounterClicked(object sender, EventArgs e)
     {
         count++;
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
+        CounterBtn.Text = count == 1 ? $"Clicked {count} time" : $"Clicked {count} times";
 
         SemanticScreenReader.Announce(CounterBtn.Text);
         
         AddNewPerson(CounterBtn.Text);
     }
-    
-    private void Init()
+
+    private async void AddNewPerson(string name)
     {
-        if (_clientRepository is not null)
-            return;
-
-        _clientRepository = new ClientSqliteRepository("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
-    }
-
-    public async void AddNewPerson(string name)
-    {
-        Init();
-
-        // Create a new client
         var client = new Client
         {
             Id = count,
