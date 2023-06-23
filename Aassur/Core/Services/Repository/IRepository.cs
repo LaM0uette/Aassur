@@ -1,4 +1,4 @@
-﻿namespace Aassur.Core.Services;
+﻿namespace Aassur.Core.Services.Repository;
 
 public interface IRepository<T> where T : class, new()
 {

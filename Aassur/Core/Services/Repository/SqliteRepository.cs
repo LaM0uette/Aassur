@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Aassur.Core.Services;
+namespace Aassur.Core.Services.Repository;
 
 public class SqliteRepository<T> : IRepository<T> where T : class, new()
 {

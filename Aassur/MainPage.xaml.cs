@@ -3,15 +3,13 @@ using Aassur.Core.Services;
 
 namespace Aassur;
 
-public partial class MainPage : ContentPage
+public partial class MainPage
 {
     private int count;
-    private readonly IRepository<Client> _clientRepository;
 
     public MainPage()
     {
         InitializeComponent();
-        _clientRepository = new ClientSqliteRepository();
     }
 
     private void OnCounterClicked(object sender, EventArgs e)
@@ -38,6 +36,6 @@ public partial class MainPage : ContentPage
             DateOfBirth = DateTime.Now
         };
 
-        await _clientRepository.AddAsync(client);
+        await SqliteService.Client.AddAsync(client);
     }
 }

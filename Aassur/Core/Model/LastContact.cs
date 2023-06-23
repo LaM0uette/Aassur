@@ -1,4 +1,4 @@
-﻿using Aassur.Core.Services;
+﻿using Aassur.Core.Services.Repository;
 using SQLite;
 
 namespace Aassur.Core.Model;
