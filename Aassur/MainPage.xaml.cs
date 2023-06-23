@@ -12,13 +12,27 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
     }
+
+    private void OnCounterClicked(object sender, EventArgs e)
+    {
+        count++;
+
+        if (count == 1)
+            CounterBtn.Text = $"Clicked {count} time";
+        else
+            CounterBtn.Text = $"Clicked {count} times";
+
+        SemanticScreenReader.Announce(CounterBtn.Text);
+        
+        AddNewPerson(CounterBtn.Text);
+    }
     
     private void Init()
     {
         if (_clientRepository is not null)
             return;
 
-        _clientRepository = new SqliteRepository<Client>("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
+        _clientRepository = new ClientSqliteRepository("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
     }
 
     public async void AddNewPerson(string name)
@@ -38,19 +52,5 @@ public partial class MainPage : ContentPage
         };
 
         await _clientRepository.AddAsync(client);
-    }
-
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-        count++;
-
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
-        
-        AddNewPerson("Johnny");
     }
 }

@@ -9,7 +9,6 @@ public class SqliteRepository<T> : IRepository<T> where T : class, new()
     public SqliteRepository(string dbPath)
     {
         _database = new SQLiteAsyncConnection(dbPath);
-        _database.CreateTableAsync<T>().Wait();
     }
 
     public async Task<IEnumerable<T>> GetAllAsync()
