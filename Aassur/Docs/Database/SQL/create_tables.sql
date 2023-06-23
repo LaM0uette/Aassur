@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS `ListCompany`;
 
 CREATE TABLE `Client`
 (
-    `Id`                       integer primary key autoincrement,
+    `Id`                       integer not null primary key autoincrement,
     `CivilityId`               integer,
     `FirstName`                varchar,
     `LastName`                 varchar,

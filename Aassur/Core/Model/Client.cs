@@ -10,7 +10,7 @@ public class Client : IIdentifiable
     public string FirstName { get; set; }
     public string LastName { get; set; }
     [Indexed] public int TypeClientId { get; set; }
-    [Indexed] public int? AdressId { get; set; }
+    [Indexed] public int? AddressId { get; set; }
     [Indexed] public int? CityId { get; set; }
     public string MobileNumber { get; set; }
     public string FixeNumber { get; set; }
