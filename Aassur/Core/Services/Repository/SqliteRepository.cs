@@ -8,7 +8,8 @@ public class SqliteRepository<T> : IRepository<T> where T : class, new()
 
     protected SqliteRepository()
     {
-        Database = new SQLiteAsyncConnection("D:\\Projets\\App\\Aassur\\Aassur\\Core\\DataBase\\Aassur.db");
+        var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Aassur", "Aassur.db");
+        Database = new SQLiteAsyncConnection(dbPath);
     }
 
     public async Task<IEnumerable<T>> GetAllAsync()
