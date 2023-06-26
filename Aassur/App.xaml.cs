@@ -25,6 +25,7 @@ public partial class App : Application
         using var stream = assembly.GetManifestResourceStream(resourceName);
         if (stream is null) throw new InvalidOperationException("Could not find embedded resource");
 
+        if (File.Exists(destinationFile)) return;
         using var fileStream = File.Create(destinationFile);
         stream.CopyTo(fileStream);
     }

@@ -9,5 +9,12 @@ public partial class AppShell : Shell
         Items.Add(DeviceInfo.Current.Idiom.Equals(DeviceIdiom.Phone) 
             ? new ShellContent {Content = new MainPageMobile()} 
             : new ShellContent {Content = new MainPage()});
+
+        TestChangePageAsync();
+    }
+
+    private async void TestChangePageAsync()
+    {
+        await Navigation.PushAsync(new MainPageMobile());
     }
 }

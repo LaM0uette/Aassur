@@ -16,13 +16,23 @@ public class Client : IIdentifiable
     public string FixeNumber { get; set; }
     public string Mail { get; set; }
     public string CountryOfResidence { get; set; }
-    public DateTime DateOfBirth { get; set; }
+    public DateTime? DateOfBirth { get; set; }
     [Indexed] public int FamilyStatusId { get; set; }
     public string Function { get; set; }
     public string Foyer { get; set; }
     public string Hobbies { get; set; }
     [Indexed] public int? RelatedCustomersClientId { get; set; }
-    public DateTime CreationDate { get; set; }
+    public DateTime? CreationDate { get; set; }
+    public DateTime? LastModificationDate { get; set; }
     public string Origin { get; set; }
     public string Note { get; set; }
+
+    public Client()
+    {
+        CivilityId = 1;
+        TypeClientId = 1;
+        FamilyStatusId = 1;
+        CreationDate = DateTime.Now;
+        LastModificationDate = DateTime.Now;
+    }
 }

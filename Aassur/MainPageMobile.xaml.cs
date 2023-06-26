@@ -28,11 +28,8 @@ public partial class MainPageMobile
         var client = new Client
         {
             Id = count,
-            CivilityId = 1,
-            TypeClientId = 1,
-            FamilyStatusId = 1,
             FirstName = name,
-            LastName = "CaVa",
+            LastName = $"{count}_CaVa",
             DateOfBirth = DateTime.Now
         };
 
