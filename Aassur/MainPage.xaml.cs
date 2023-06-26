@@ -16,7 +16,7 @@ public partial class MainPage
     {
         count++;
 
-        CounterBtn.Text = count == 1 ? $"Clicked {count} time" : $"Clicked {count} times";
+        CounterBtn.Text = count.Equals(1) ? $"Clicked {count} time" : $"Clicked {count} times";
 
         SemanticScreenReader.Announce(CounterBtn.Text);
         
