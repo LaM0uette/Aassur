@@ -6,10 +6,10 @@ public partial class App : Application
 {
     public App()
     {
-        InitializeComponent();
-
         CreateSqliteDbIfNotExist();
-
+        
+        InitializeComponent();
+        
         MainPage = new AppShell();
     }
 
