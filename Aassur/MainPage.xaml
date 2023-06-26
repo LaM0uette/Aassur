@@ -6,15 +6,25 @@
     
     <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
         
-        
         <Grid WidthRequest="1000">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <!-- Clients -->
-            <components:SearchablePersonListView Grid.Column="0" />
+            <!-- Clients  <components:SearchablePersonListView Grid.Column="0" /> -->
+            <StackLayout Grid.Column="0" Orientation="Horizontal">
+                <StackLayout Orientation="Vertical">
+                
+                </StackLayout>
+                <Button WidthRequest="200"
+                        HeightRequest="200"
+                        CornerRadius="10"
+                        Background="Transparent"
+                        BorderColor="{StaticResource Secondary}"
+                        BorderWidth="1"
+                />
+            </StackLayout>
             
             <!-- Map -->
             <Button Grid.Column="1" Text="Button 2" />
