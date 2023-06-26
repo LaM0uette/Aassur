@@ -70,4 +70,11 @@
       </Compile>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Core\DataBase\Aassur.db" />
+      <EmbeddedResource Include="Core\DataBase\Aassur.db">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
 </Project>
