@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="using:Aassur.Resources.Components"
              x:Class="Aassur.MainPage">
     
     <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+        
         
         <Grid WidthRequest="1000">
             <Grid.ColumnDefinitions>
@@ -11,7 +13,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" Text="Button 1" />
+            <!-- Clients -->
+            <components:SearchablePersonListView Grid.Column="0" />
+            
+            <!-- Map -->
             <Button Grid.Column="1" Text="Button 2" />
         </Grid>
     
@@ -22,8 +27,13 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             
+            <!-- Meetings -->
             <Button Grid.Column="0" Text="Button 1" />
+            
+            <!-- News -->
             <Button Grid.Column="1" Text="Button 2" />
+            
+            <!-- Settings -->
             <Button Grid.Column="2" Text="Button 3" />
         </Grid>
         

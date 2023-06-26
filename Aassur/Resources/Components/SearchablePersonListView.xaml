@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aassur.Resources.Components.SearchablePersonListView">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="150" />
+        </Grid.RowDefinitions>
+
+        <Entry x:Name="SearchEntry"
+               Placeholder="Rechercher une personne"
+               TextChanged="OnSearchEntryTextChanged" />
+
+        <ListView x:Name="PersonListView"
+                  Grid.Row="1"
+                  ItemSelected="OnPersonListViewItemSelected"
+                  IsVisible="False"
+                  BackgroundColor="Black"
+                  ZIndex="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Ajoutez ici d'autres éléments de l'interface utilisateur, ils seront affichés sous la liste de recherche -->
+        <StackLayout Grid.Row="1" x:Name="OtherContent" Margin="0,20,0,0">
+            <!-- Exemple d'autres éléments -->
+            <Label Text="Autres éléments de l'interface utilisateur" />
+        </StackLayout>
+    </Grid>
+    
+</ContentView>
