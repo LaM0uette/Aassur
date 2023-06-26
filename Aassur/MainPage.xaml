@@ -3,4 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aassur.MainPage">
     
+    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+        
+        <Grid WidthRequest="1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Text="Button 1" />
+            <Button Grid.Column="1" Text="Button 2" />
+        </Grid>
+    
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Text="Button 1" />
+            <Button Grid.Column="1" Text="Button 2" />
+            <Button Grid.Column="2" Text="Button 3" />
+        </Grid>
+        
+    </StackLayout>
+    
 </ContentPage>
