@@ -1,25 +1,34 @@
 ﻿DELETE FROM `Client`;
-DELETE FROM `Contract`;
-DELETE FROM `Address`;
-DELETE FROM `LastContact`;
-DELETE FROM `Meeting`;
-DELETE FROM `News`;
-DELETE FROM `ListCivility`;
-DELETE FROM `ListTypeClient`;
-DELETE FROM `ListCity`;
-DELETE FROM `ListFamilyStatus`;
-DELETE FROM `ListTypeContract`;
-
 DELETE FROM SQLITE_SEQUENCE WHERE name='Client';
+
+DELETE FROM `Contract`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='Contract';
+
+DELETE FROM `Address`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='Address';
+
+DELETE FROM `LastContact`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='LastContact';
+
+DELETE FROM `Meeting`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='Meeting';
+
+DELETE FROM `News`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='News';
+
+DELETE FROM `ListCivility`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='ListCivility';
+
+DELETE FROM `ListTypeClient`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='ListTypeClient';
+
+DELETE FROM `ListCity`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='ListCity';
+
+DELETE FROM `ListFamilyStatus`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='ListFamilyStatus';
+
+DELETE FROM `ListTypeContract`;
 DELETE FROM SQLITE_SEQUENCE WHERE name='ListTypeContract';
 
 
