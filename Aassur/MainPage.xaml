@@ -8,6 +8,9 @@
     <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
         <StackLayout.Resources>
             <system:Double x:Key="lineHeight">300</system:Double>
+            <system:Double x:Key="iconeSize">180</system:Double>
+            <system:Double x:Key="borderWidth">2</system:Double>
+            <system:Int32 x:Key="cornerRadius">15</system:Int32>
         </StackLayout.Resources>
         
         <Grid WidthRequest="1000">
@@ -34,16 +37,24 @@
             </StackLayout>
             
             <!-- Map -->
-            <ImageButton Grid.Column="1"
-                         Source="map.png"
-                         WidthRequest="{StaticResource lineHeight}"
-                         HeightRequest="{StaticResource lineHeight}"
-                         BackgroundColor="Transparent"
-                         BorderColor="{StaticResource Secondary}"
-                         BorderWidth="1"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"
-                         Aspect="AspectFill"/> 
+            <Grid Grid.Column="1" 
+                  WidthRequest="{StaticResource lineHeight}" 
+                  HeightRequest="{StaticResource lineHeight}">
+                
+                <Button BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Secondary}"
+                        BorderWidth="{StaticResource borderWidth}"
+                        CornerRadius="{StaticResource cornerRadius}"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"/>
+                
+                <Image Source="map.png"
+                       WidthRequest="{StaticResource iconeSize}"
+                       HeightRequest="{StaticResource iconeSize}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Aspect="AspectFill"/>
+            </Grid>
         </Grid>
     
         <Grid>
