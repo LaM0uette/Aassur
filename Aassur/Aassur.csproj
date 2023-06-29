@@ -61,6 +61,9 @@
       <MauiXaml Update="MainPageMobile.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
+      <MauiXaml Update="Resources\Styles\Components\ButtonStyles.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>

@@ -46,7 +46,10 @@
                         BorderWidth="{StaticResource borderWidth}"
                         CornerRadius="{StaticResource cornerRadius}"
                         HorizontalOptions="Fill"
-                        VerticalOptions="Fill"/>
+                        VerticalOptions="Fill"
+                        Style="{StaticResource ButtonMainMenu}"
+                        Text="Test">
+                </Button>
                 
                 <Image Source="map.png"
                        WidthRequest="{StaticResource iconeSize}"
