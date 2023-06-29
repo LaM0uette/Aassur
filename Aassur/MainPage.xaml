@@ -41,18 +41,26 @@
                   WidthRequest="{StaticResource lineHeight}" 
                   HeightRequest="{StaticResource lineHeight}">
                 
-                
-                <components:ContentButton BackgroundColor="Transparent"
-                                          WidthRequest="{StaticResource lineHeight}"
-                                          HeightRequest="{StaticResource lineHeight}">
-                    <Image Source="map.png"
-                           WidthRequest="{StaticResource iconSize}"
-                           HeightRequest="{StaticResource iconSize}"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           Aspect="AspectFill"/>
-                </components:ContentButton>
-                
+                <Frame BorderColor="{StaticResource Secondary}"
+                       Padding="3"
+                       CornerRadius="10"
+                       HasShadow="True">
+                    <Frame BackgroundColor="White"
+                           Padding="0"
+                           CornerRadius="10"
+                           HasShadow="False">
+                        <components:ContentButton BackgroundColor="Transparent"
+                                                  WidthRequest="{StaticResource lineHeight}"
+                                                  HeightRequest="{StaticResource lineHeight}">
+                            <Image Source="map.png"
+                                   WidthRequest="{StaticResource iconSize}"
+                                   HeightRequest="{StaticResource iconSize}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Aspect="AspectFill"/>
+                        </components:ContentButton>
+                    </Frame>
+                </Frame>
                 
             </Grid>
         </Grid>
