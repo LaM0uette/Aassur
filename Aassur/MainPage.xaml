@@ -8,7 +8,7 @@
     <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
         <StackLayout.Resources>
             <system:Double x:Key="lineHeight">300</system:Double>
-            <system:Double x:Key="iconeSize">180</system:Double>
+            <system:Double x:Key="iconSize">180</system:Double>
             <system:Double x:Key="borderWidth">2</system:Double>
             <system:Int32 x:Key="cornerRadius">15</system:Int32>
         </StackLayout.Resources>
@@ -41,21 +41,19 @@
                   WidthRequest="{StaticResource lineHeight}" 
                   HeightRequest="{StaticResource lineHeight}">
                 
-                <components:StyledButton BackgroundColor="Transparent"
-                        BorderColor="{StaticResource Secondary}"
-                        BorderWidth="{StaticResource borderWidth}"
-                        CornerRadius="{StaticResource cornerRadius}"
-                        HorizontalOptions="Fill"
-                        VerticalOptions="Fill"
-                        Text="Test">
-                </components:StyledButton>
                 
-                <Image Source="map.png"
-                       WidthRequest="{StaticResource iconeSize}"
-                       HeightRequest="{StaticResource iconeSize}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       Aspect="AspectFill"/>
+                <components:ContentButton BackgroundColor="Transparent"
+                                          WidthRequest="{StaticResource lineHeight}"
+                                          HeightRequest="{StaticResource lineHeight}">
+                    <Image Source="map.png"
+                           WidthRequest="{StaticResource iconSize}"
+                           HeightRequest="{StaticResource iconSize}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Aspect="AspectFill"/>
+                </components:ContentButton>
+                
+                
             </Grid>
         </Grid>
     
