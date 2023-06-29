@@ -41,15 +41,14 @@
                   WidthRequest="{StaticResource lineHeight}" 
                   HeightRequest="{StaticResource lineHeight}">
                 
-                <Button BackgroundColor="Transparent"
+                <components:StyledButton BackgroundColor="Transparent"
                         BorderColor="{StaticResource Secondary}"
                         BorderWidth="{StaticResource borderWidth}"
                         CornerRadius="{StaticResource cornerRadius}"
                         HorizontalOptions="Fill"
                         VerticalOptions="Fill"
-                        Style="{StaticResource ButtonMainMenu}"
                         Text="Test">
-                </Button>
+                </components:StyledButton>
                 
                 <Image Source="map.png"
                        WidthRequest="{StaticResource iconeSize}"
