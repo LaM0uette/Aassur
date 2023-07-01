@@ -10,7 +10,6 @@
         <StackLayout.Resources>
             <system:Double x:Key="lineHeight">300</system:Double>
             <system:Double x:Key="iconSize">180</system:Double>
-            <system:Double x:Key="borderWidth">2</system:Double>
             <system:Single x:Key="cornerRadius">10</system:Single>
         </StackLayout.Resources>
 
