@@ -2,6 +2,7 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="using:Aassur.Resources.Components"
              x:Class="Aassur.Resources.Components.SearchablePersonListView">
     
     <Grid Margin="20">
@@ -14,17 +15,37 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Entry Grid.Row="0" Grid.Column="0" x:Name="SearchEntry"
-               HeightRequest="30"
-               Placeholder="Rechercher un client"
-               TextChanged="OnSearchEntryTextChanged" />
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <Entry Grid.Column="0" x:Name="SearchEntry"
+                   HeightRequest="30"
+                   Placeholder="Rechercher un client"
+                   TextChanged="OnSearchEntryTextChanged" />
         
-        <ImageButton Grid.Row="0" Grid.Column="1" 
-                     WidthRequest="30"
-                     HeightRequest="30"
-                     Source="loupe.png"
-                     Aspect="AspectFill"/>
-
+            <Grid Grid.Column="1" WidthRequest="30" HeightRequest="30">
+                
+                <Frame Background="Transparent"
+                       BorderColor="Transparent"
+                       CornerRadius="8"
+                       Padding="0">
+                <components:ContentButton BackgroundColor="Transparent"
+                                          WidthRequest="30"
+                                          HeightRequest="30">
+                    <Image Source="loupe.png"
+                           WidthRequest="22"
+                           HeightRequest="22"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Aspect="AspectFill" />
+                </components:ContentButton>
+            </Frame>
+                </Grid>
+        </Grid>
+        
         <ListView x:Name="PersonListView"
                   Grid.Row="1"
                   Grid.Column="0"

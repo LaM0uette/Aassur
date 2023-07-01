@@ -39,7 +39,8 @@
                 </Frame>
 
                 <!-- Button database -->
-                <Grid Grid.Column="1" WidthRequest="{StaticResource lineHeight}"
+                <Grid Grid.Column="1" 
+                      WidthRequest="{StaticResource lineHeight}"
                       HeightRequest="{StaticResource lineHeight}">
 
                     <Frame Background="Transparent"
