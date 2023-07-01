@@ -9,13 +9,26 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="150" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
 
-        <Entry x:Name="SearchEntry"
-               Placeholder="Rechercher une personne"
+        <Entry Grid.Row="0" Grid.Column="0" x:Name="SearchEntry"
+               HeightRequest="30"
+               Placeholder="Rechercher un client"
                TextChanged="OnSearchEntryTextChanged" />
+        
+        <ImageButton Grid.Row="0" Grid.Column="1" 
+                     WidthRequest="30"
+                     HeightRequest="30"
+                     Source="loupe.png"
+                     Aspect="AspectFill"/>
 
         <ListView x:Name="PersonListView"
                   Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
                   ItemSelected="OnPersonListViewItemSelected"
                   IsVisible="False"
                   BackgroundColor="Black"
@@ -26,12 +39,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <!-- Ajoutez ici d'autres éléments de l'interface utilisateur, ils seront affichés sous la liste de recherche -->
-        <StackLayout Grid.Row="1" x:Name="OtherContent" Margin="0,20,0,0">
-            <!-- Exemple d'autres éléments -->
-            <Label Text="Autres éléments de l'interface utilisateur" />
-        </StackLayout>
     </Grid>
     
 </ContentView>
