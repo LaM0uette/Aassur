@@ -5,6 +5,7 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:Class="Aassur.MainPage"
              xmlns:components="using:Aassur.Resources.Components"
+             xmlns:compatibility="using:Microsoft.Maui.Controls.Compatibility"
              Background="{StaticResource Secondary}">
 
     <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
@@ -27,16 +28,16 @@
                    CornerRadius="{StaticResource cornerRadius}"
                    Padding="5">
                 
-                <Grid ColumnSpacing="5">
+                <Grid ColumnSpacing="6">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
                     <Frame Grid.Column="0" 
                            HeightRequest="{StaticResource lineHeight}"
                            Background="{StaticResource Tertiary}"
-                           BorderColor="Transparent"
+                           BorderColor="{StaticResource Tertiary}"
                            CornerRadius="{StaticResource cornerRadius}"
                            Padding="0">
 
@@ -71,15 +72,15 @@
                                 </Grid.ColumnDefinitions>
                                 
                                 <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Arnaud de VILLELE - 99ans - Ablon</Label>
-                                <Button Grid.Row="0" Grid.Column="1" BorderColor="Transparent" Background="Transparent" Text="Fiche client" TextColor="{StaticResource Primary}" />
+                                <components:MenuFicheClientButton Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonMenuFicheClient}" />
                                 <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
                                 
                                 <Label Grid.Row="2" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Paul MOREAU - 51ans - Rouen</Label>
-                                <Button Grid.Row="2" Grid.Column="1" BorderColor="Transparent" Background="Transparent" Text="Fiche client" TextColor="{StaticResource Primary}" />
+                                <components:MenuFicheClientButton Grid.Row="2" Grid.Column="1" Style="{StaticResource ButtonMenuFicheClient}" />
                                 <Line Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
                                 
                                 <Label Grid.Row="4" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Test ETRETEST - 24ans - Lyon</Label>
-                                <Button Grid.Row="4" Grid.Column="1" BorderColor="Transparent" Background="Transparent" Text="Fiche client" TextColor="{StaticResource Primary}" />
+                                <components:MenuFicheClientButton Grid.Row="4" Grid.Column="1" Style="{StaticResource ButtonMenuFicheClient}" />
                                 <Line Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
                             </Grid>
                         </StackLayout>
