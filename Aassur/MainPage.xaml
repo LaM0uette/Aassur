@@ -14,52 +14,73 @@
             <system:Single x:Key="cornerRadius">8</system:Single>
         </StackLayout.Resources>
 
-        <Grid>
+        <Grid ColumnSpacing="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <!-- Clients -->
-            <Grid Grid.Column="0" ColumnSpacing="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            <Frame Grid.Column="0" 
+                   Background="Transparent"
+                   BorderColor="{StaticResource Tertiary}"
+                   CornerRadius="{StaticResource cornerRadius}"
+                   Padding="5">
+                
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <Frame Grid.Column="0" HeightRequest="{StaticResource lineHeight}"
-                       Background="{StaticResource Tertiary}"
-                       BorderColor="Transparent"
-                       CornerRadius="{StaticResource cornerRadius}"
-                       Padding="0">
-
-                    <StackLayout Orientation="Vertical">
-                        <components:SearchablePersonListView />
-                    </StackLayout>
-                </Frame>
-
-                <!-- Button database -->
-                <Grid Grid.Column="1" 
-                      WidthRequest="{StaticResource lineHeight}"
-                      HeightRequest="{StaticResource lineHeight}">
-
-                    <Frame Background="Transparent"
+                    <Frame Grid.Column="0" HeightRequest="{StaticResource lineHeight}"
+                           Background="{StaticResource Tertiary}"
                            BorderColor="Transparent"
                            CornerRadius="{StaticResource cornerRadius}"
                            Padding="0">
-                        <components:ContentButton BackgroundColor="Transparent"
-                                                  WidthRequest="{StaticResource lineHeight}"
-                                                  HeightRequest="{StaticResource lineHeight}">
-                            <Image Source="database.png"
-                                   WidthRequest="{StaticResource iconSize}"
-                                   HeightRequest="{StaticResource iconSize}"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
-                                   Aspect="AspectFill" />
-                        </components:ContentButton>
+
+                        <StackLayout Orientation="Vertical">
+                            
+                            <!-- Search client -->
+                            <components:SearchablePersonListView />
+                            
+                            <!-- Title recent client -->
+                            <Label Text="Clients récents"
+                                   TextColor="{StaticResource Secondary}"
+                                   FontSize="30"
+                                   FontAttributes="Bold"
+                                   TextDecorations="Underline"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center" />
+                            
+                            <!-- List recent client -->
+                            
+                        </StackLayout>
                     </Frame>
+
+                    <!-- Button database -->
+                    <Grid Grid.Column="1"
+                          WidthRequest="{StaticResource lineHeight}"
+                          HeightRequest="{StaticResource lineHeight}">
+
+                        <Frame Background="Transparent"
+                               BorderColor="Transparent"
+                               CornerRadius="{StaticResource cornerRadius}"
+                               Padding="0">
+                            <components:ContentButton BackgroundColor="Transparent"
+                                                      WidthRequest="{StaticResource lineHeight}"
+                                                      HeightRequest="{StaticResource lineHeight}">
+                                <Image Source="database.png"
+                                       WidthRequest="{StaticResource iconSize}"
+                                       HeightRequest="{StaticResource iconSize}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       Aspect="AspectFill" />
+                            </components:ContentButton>
+                        </Frame>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Frame>
 
             <!-- Map -->
             <Grid Grid.Column="1"

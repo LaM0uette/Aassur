@@ -8,7 +8,7 @@
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="150" />
+            <RowDefinition Height="0" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -50,8 +50,8 @@
                   Grid.Row="1"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
-                  ItemSelected="OnPersonListViewItemSelected"
                   IsVisible="False"
+                  ItemSelected="OnPersonListViewItemSelected"
                   BackgroundColor="Black"
                   ZIndex="1">
             <ListView.ItemTemplate>
