@@ -7,10 +7,10 @@
              xmlns:components="using:Aassur.Resources.Components"
              Background="{StaticResource Secondary}">
 
-    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
         <StackLayout.Resources>
-            <system:Double x:Key="lineHeight">200</system:Double>
-            <system:Double x:Key="iconSize">140</system:Double>
+            <system:Double x:Key="lineHeight">220</system:Double>
+            <system:Double x:Key="iconSize">150</system:Double>
             <system:Single x:Key="cornerRadius">8</system:Single>
         </StackLayout.Resources>
 
@@ -33,13 +33,14 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Frame Grid.Column="0" HeightRequest="{StaticResource lineHeight}"
+                    <Frame Grid.Column="0" 
+                           HeightRequest="{StaticResource lineHeight}"
                            Background="{StaticResource Tertiary}"
                            BorderColor="Transparent"
                            CornerRadius="{StaticResource cornerRadius}"
                            Padding="0">
 
-                        <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Vertical" Padding="10, 0">
                             
                             <!-- Search client -->
                             <components:SearchablePersonListView />
@@ -49,12 +50,38 @@
                                    TextColor="{StaticResource Secondary}"
                                    FontSize="30"
                                    FontAttributes="Bold"
-                                   TextDecorations="Underline"
                                    HorizontalOptions="Start"
                                    VerticalOptions="Center" />
                             
-                            <!-- List recent client -->
+                            <Line Background="{StaticResource Secondary}" Margin="0, 0, 0, 5"/>
                             
+                            <!-- List recent client -->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="2" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="2" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="2" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Arnaud de VILLELE - 99ans - Ablon</Label>
+                                <Button Grid.Row="0" Grid.Column="1" BorderColor="Transparent" Background="Transparent" Text="Fiche client" TextColor="{StaticResource Primary}" />
+                                <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
+                                
+                                <Label Grid.Row="2" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Paul MOREAU - 51ans - Rouen</Label>
+                                <Button Grid.Row="2" Grid.Column="1" BorderColor="Transparent" Background="Transparent" Text="Fiche client" TextColor="{StaticResource Primary}" />
+                                <Line Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
+                                
+                                <Label Grid.Row="4" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Test ETRETEST - 24ans - Lyon</Label>
+                                <Button Grid.Row="4" Grid.Column="1" BorderColor="Transparent" Background="Transparent" Text="Fiche client" TextColor="{StaticResource Primary}" />
+                                <Line Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
+                            </Grid>
                         </StackLayout>
                     </Frame>
 
@@ -88,7 +115,7 @@
                   HeightRequest="{StaticResource lineHeight}">
 
                 <Frame Background="Transparent"
-                       BorderColor="Transparent"
+                       BorderColor="{StaticResource Tertiary}"
                        CornerRadius="{StaticResource cornerRadius}"
                        Padding="0">
                     <components:ContentButton BackgroundColor="Transparent"
@@ -113,13 +140,13 @@
             </Grid.ColumnDefinitions>
 
             <!-- Meetings -->
-            <Button Grid.Column="0" Text="Button 1" />
+            <Button Grid.Column="0" Text="Button 1" WidthRequest="400" />
 
             <!-- News -->
-            <Button Grid.Column="1" Text="Button 2" />
+            <Button Grid.Column="1" Text="Button 2" WidthRequest="400" />
 
             <!-- Settings -->
-            <Button Grid.Column="2" Text="Button 3" />
+            <Button Grid.Column="2" Text="Button 3" WidthRequest="400" />
         </Grid>
     </StackLayout>
 
