@@ -5,8 +5,6 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aassur", "Aassur\Aassur.csproj", "{4407C647-21CA-429A-9E32-623FB437D2EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AassurTest", "AassurTest\AassurTest.csproj", "{A71181CE-7A4E-4CE3-95D5-C97B90B1A314}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,10 +16,6 @@ Global
 		{4407C647-21CA-429A-9E32-623FB437D2EF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{4407C647-21CA-429A-9E32-623FB437D2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4407C647-21CA-429A-9E32-623FB437D2EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A71181CE-7A4E-4CE3-95D5-C97B90B1A314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A71181CE-7A4E-4CE3-95D5-C97B90B1A314}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A71181CE-7A4E-4CE3-95D5-C97B90B1A314}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A71181CE-7A4E-4CE3-95D5-C97B90B1A314}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
