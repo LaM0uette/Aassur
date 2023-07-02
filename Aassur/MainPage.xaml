@@ -49,7 +49,7 @@
                             
                             <!-- Search client -->
                             <!-- <components:SearchablePersonListView /> -->
-                            <components:SearchablePersonListViewTest />
+                            <components:FilteredEntry Margin="5" />
                             
                             <!-- Title recent client -->
                             <Label Text="Clients récents"
