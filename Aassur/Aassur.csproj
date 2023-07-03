@@ -64,18 +64,11 @@
       <MauiXaml Update="Resources\Styles\Components\ButtonStyles.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
-      <MauiXaml Update="Resources\Components\SearchablePersonListViewTest.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
       <Compile Update="MainPageMobile.xaml.cs">
         <DependentUpon>MainPageMobile.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Resources\Components\SearchablePersonListViewTest.xaml.cs">
-        <DependentUpon>SearchablePersonListViewTest.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>

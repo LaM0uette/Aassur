@@ -4,8 +4,8 @@ public class MenuFicheClientButton : Button
 {
     public MenuFicheClientButton()
     {
-        var primaryColor = Color.FromRgb(255, 0, 0);
-        var tertiaryColor = Color.FromRgb(0, 255, 0);
+        var primaryColor = Color.FromRgb(55, 190, 189);
+        var tertiaryColor = Color.FromRgb(58, 71, 70);
         
         if (Application.Current is not null && Application.Current.Resources.TryGetValue("Primary", out var obj) && obj is Color color)
         {

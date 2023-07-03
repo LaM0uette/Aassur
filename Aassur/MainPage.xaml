@@ -48,7 +48,6 @@
                         <StackLayout Orientation="Vertical" Padding="5">
                             
                             <!-- Search client -->
-                            <!-- <components:SearchablePersonListViewTest /> -->
                             <components:FilteredEntry />
                             
                             <!-- Title recent client -->

@@ -7,10 +7,10 @@ public class ContentButton : ContentView
     public ContentButton()
     {
         var tapGestureRecognizer = new TapGestureRecognizer();
-        tapGestureRecognizer.Tapped += (s, e) => Clicked?.Invoke(this, EventArgs.Empty);
+        tapGestureRecognizer.Tapped += (_, _) => Clicked?.Invoke(this, EventArgs.Empty);
         GestureRecognizers.Add(tapGestureRecognizer);
         
-        var primaryColor = Color.FromRgb(255, 0, 0);
+        var primaryColor = Color.FromRgb(55, 190, 189);
         if (Application.Current is not null && Application.Current.Resources.TryGetValue("Primary", out var obj) && obj is Color color)
         {
             primaryColor = color;
