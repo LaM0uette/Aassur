@@ -1,5 +1,4 @@
-﻿using Aassur.Core.Model;
-using Aassur.Core.Services;
+﻿using Aassur.Core.Data;
 
 namespace Aassur.Resources.Components;
 
@@ -18,9 +17,8 @@ public partial class FilteredEntry
     
     #region Events
 
-    private async void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
+    private void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
     {
-        var clients = await GetAllClientsAsync();
         var filteredClients = App.DbData.Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
         PickerSearch.ItemsSource = filteredClients.Select(c => c.FullName).ToList();
     }
@@ -31,23 +29,7 @@ public partial class FilteredEntry
 
     private async void AddAllClientsInPicker()
     {
-        try
-        {
-            var clients = await GetAllClientsAsync();
-            PickerSearch.Dispatcher.Dispatch(() =>
-            {
-                PickerSearch.ItemsSource = clients.Select(c => c.FullName).ToList();
-            });
-        }
-        catch (Exception)
-        {
-            // ignored
-        }
-    }
-    
-    private static async Task<IEnumerable<Client>> GetAllClientsAsync()
-    {
-        return await SqliteService.Client.GetAllAsync();
+        PickerSearch.ItemsSource = (await DbData.GetAllClientsAsync()).Select(c => c.FullName).ToList();
     }
 
     #endregion

@@ -9,16 +9,16 @@ public class DbData
 
     public DbData()
     {
-        Task.Run(AddAllClients);
+        Task.Run(SetClients);
     }
     
-    private async void AddAllClients()
+    private async void SetClients()
     {
         var clients = await GetAllClientsAsync();
         Clients = clients;
     }
     
-    private static async Task<IEnumerable<Client>> GetAllClientsAsync()
+    public static async Task<IEnumerable<Client>> GetAllClientsAsync()
     {
         return await SqliteService.Client.GetAllAsync();
     }
