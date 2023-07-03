@@ -21,7 +21,7 @@ public partial class FilteredEntry
     private async void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
     {
         var clients = await GetAllClientsAsync();
-        var filteredClients = clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
+        var filteredClients = App.Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
         PickerSearch.ItemsSource = filteredClients.Select(c => c.FullName).ToList();
     }
 
@@ -47,8 +47,7 @@ public partial class FilteredEntry
     
     private static async Task<IEnumerable<Client>> GetAllClientsAsync()
     {
-        var clients = await SqliteService.Client.GetAllAsync();
-        return clients.ToList();
+        return await SqliteService.Client.GetAllAsync();
     }
 
     #endregion
