@@ -21,7 +21,7 @@ public partial class FilteredEntry
     private async void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
     {
         var clients = await GetAllClientsAsync();
-        var filteredClients = App.Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
+        var filteredClients = App.DbData.Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
         PickerSearch.ItemsSource = filteredClients.Select(c => c.FullName).ToList();
     }
 
