@@ -6,66 +6,49 @@ namespace Aassur.Resources.Components;
 public partial class FilteredEntry
 {
     #region Statements
-    
-    private List<Client> Clients { get; set; }
-    private List<Client> FilteredClients { get; set; }
 
     public FilteredEntry()
     {
         InitializeComponent();
-        
-        Clients = new List<Client>();
-        FilteredClients = new List<Client>();
-        
-        PickerSearch.ItemsSource = FilteredClients.Select(c => c.FullName).ToList();
+
+        Task.Run(AddAllClientsInPicker);
     }
 
     #endregion
-
-    #region Functions
-
-    private async void Test()
-    {
-        var clients = await GetClients();
-        
-        Clients = clients;
-        FilteredClients = clients;
-    }
-
-    private async Task<List<Client>> GetClients()
-    {
-        var clients = await SqliteService.Client.GetByContainAsync(EntrySearch.Text.ToLower());
-        return clients.ToList();
-    }
-
-    #endregion
-
+    
     #region Events
 
-    private void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
+    private async void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
     {
-        Test();
-        
+        var clients = await GetAllClientsAsync();
+        var filteredClients = clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
+        PickerSearch.ItemsSource = filteredClients.Select(c => c.FullName).ToList();
+    }
+
+    #endregion
+    
+    #region Functions
+
+    private async void AddAllClientsInPicker()
+    {
         try
         {
-            FilteredClients = Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
-            PickerSearch.ItemsSource = FilteredClients.Select(c => c.FullName).ToList();
+            var clients = await GetAllClientsAsync();
+            PickerSearch.Dispatcher.Dispatch(() =>
+            {
+                PickerSearch.ItemsSource = clients.Select(c => c.FullName).ToList();
+            });
         }
-        catch (Exception){ /* ignored */ }
+        catch (Exception)
+        {
+            // ignored
+        }
     }
     
-    void OnPickerSearchSelectedIndexChanged(object sender, EventArgs e)
+    private static async Task<IEnumerable<Client>> GetAllClientsAsync()
     {
-        var picker = (Picker)sender;
-        
-        int selectedIndex = picker.SelectedIndex;
-
-        if (selectedIndex != -1)
-        {
-            string selectedPersonName = (string)picker.ItemsSource[selectedIndex];
-            
-            //EntrySearch.Text = selectedPersonName;
-        }
+        var clients = await SqliteService.Client.GetAllAsync();
+        return clients.ToList();
     }
 
     #endregion

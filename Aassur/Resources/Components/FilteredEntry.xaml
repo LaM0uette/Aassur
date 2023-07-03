@@ -12,7 +12,7 @@
                Placeholder="Filter un client..."
                TextChanged="OnEntrySearchTextChanged"/>
             
-        <Picker x:Name="PickerSearch" SelectedIndexChanged="OnPickerSearchSelectedIndexChanged"/>
+        <Picker x:Name="PickerSearch"/>
             
         <Grid>
             <Frame BackgroundColor="Transparent"
