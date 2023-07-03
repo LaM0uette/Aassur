@@ -45,11 +45,11 @@
                            CornerRadius="{StaticResource cornerRadius}"
                            Padding="0">
 
-                        <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Vertical" Padding="5">
                             
                             <!-- Search client -->
-                            <!-- <components:SearchablePersonListView /> -->
-                            <components:FilteredEntry Margin="5" />
+                            <!-- <components:SearchablePersonListViewTest /> -->
+                            <components:FilteredEntry />
                             
                             <!-- Title recent client -->
                             <Label Text="Clients récents"

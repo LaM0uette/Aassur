@@ -20,7 +20,6 @@
         
         <Picker Grid.Column="1" 
                 x:Name="PickerSearch"
-                HeightRequest="44"
                 SelectedIndexChanged="OnPickerSearchSelectedIndexChanged"/>
         
         <Grid Grid.Column="2">
@@ -42,7 +41,6 @@
                 </components:ContentButton>
             </Frame>
         </Grid>
-        
     </Grid>
     
 </ContentView>

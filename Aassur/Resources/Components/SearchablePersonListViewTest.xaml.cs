@@ -1,6 +1,4 @@
-﻿using Aassur.Core.Model;
-
-namespace Aassur.Resources.Components;
+﻿namespace Aassur.Resources.Components;
 
 public partial class SearchablePersonListViewTest : ContentView
 {

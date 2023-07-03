@@ -26,6 +26,8 @@ public class Client : IIdentifiable
     public DateTime? LastModificationDate { get; set; }
     public string Origin { get; set; }
     public string Note { get; set; }
+    
+    [Ignore] public string FullName => $"{FirstName} {LastName}";
 
     public Client()
     {
