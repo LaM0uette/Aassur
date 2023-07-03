@@ -6,5 +6,5 @@ namespace Aassur.Core.Services;
 
 public static class SqliteService
 {
-    public static IRepository<Client> Client { get; private set; } = new ClientSqliteRepository();
+    public static ClientSqliteRepository Client { get; private set; } = new ClientSqliteRepository();
 }

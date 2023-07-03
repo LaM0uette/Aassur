@@ -1,4 +1,5 @@
 ﻿using Aassur.Core.Model;
+using Aassur.Core.Services;
 
 namespace Aassur.Resources.Components;
 
@@ -6,26 +7,35 @@ public partial class FilteredEntry
 {
     #region Statements
     
-    private readonly List<Client> Clients = new()
-    {
-        new Client{ Id = 1, FirstName = "FirstName 1", LastName = "LastName 1" },
-        new Client{ Id = 2, FirstName = "FirstName 2", LastName = "LastName 2" },
-        new Client{ Id = 3, FirstName = "FirstName 3", LastName = "LastName 3" },
-        new Client{ Id = 4, FirstName = "FirstName 4", LastName = "LastName 4" },
-        new Client{ Id = 5, FirstName = "FirstName 5", LastName = "LastName 5" },
-        new Client{ Id = 6, FirstName = "Paul", LastName = "zae" },
-        new Client{ Id = 7, FirstName = "Pascal", LastName = "dfsdf" },
-        new Client{ Id = 8, FirstName = "Greorge", LastName = "fhfgh" },
-    };
-
+    private List<Client> Clients { get; set; }
     private List<Client> FilteredClients { get; set; }
 
     public FilteredEntry()
     {
         InitializeComponent();
-
-        FilteredClients = Clients;
+        
+        Clients = new List<Client>();
+        FilteredClients = new List<Client>();
+        
         PickerSearch.ItemsSource = FilteredClients.Select(c => c.FullName).ToList();
+    }
+
+    #endregion
+
+    #region Functions
+
+    private async void Test()
+    {
+        var clients = await GetClients();
+        
+        Clients = clients;
+        FilteredClients = clients;
+    }
+
+    private async Task<List<Client>> GetClients()
+    {
+        var clients = await SqliteService.Client.GetByContainAsync(EntrySearch.Text.ToLower());
+        return clients.ToList();
     }
 
     #endregion
@@ -34,6 +44,8 @@ public partial class FilteredEntry
 
     private void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
     {
+        Test();
+        
         try
         {
             FilteredClients = Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
