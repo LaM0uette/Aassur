@@ -6,8 +6,7 @@ public class ClientSqliteRepository : SqliteRepository<Client>
 {
     public async Task<IEnumerable<Client>> GetByContainAsync(string text)
     {
-        return await Database.Table<Client>()
-            .Where(c => c.FirstName.ToLower().Contains(text.ToLower()) || c.LastName.ToLower().Contains(text.ToLower()))
-            .ToListAsync();
+        var allClients = await Database.Table<Client>().ToListAsync();
+        return allClients.Where(c => (c.FirstName + " " + c.LastName).ToLower().Contains(text.ToLower()));
     }
 }
