@@ -20,6 +20,8 @@
         
         <Picker Grid.Column="1" 
                 x:Name="PickerSearch"
+                HorizontalTextAlignment="Center" 
+                HorizontalOptions="Center"
                 SelectedIndexChanged="OnPickerSearchSelectedIndexChanged"/>
         
         <Grid Grid.Column="2">

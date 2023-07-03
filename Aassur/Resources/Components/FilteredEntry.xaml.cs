@@ -34,20 +34,14 @@ public partial class FilteredEntry
 
     private void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
     {
-        if (Clients.Any(c => c.FullName.ToLower().Equals(EntrySearch.Text.ToLower())))
+        if (Clients.Any(c => c.FullName.ToLower().Equals(EntrySearch.Text.ToLower()))) return;
+        
+        try
         {
-            return;
+            FilteredClients = Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
             PickerSearch.ItemsSource = FilteredClients.Select(c => c.FullName).ToList();
         }
-        else
-        {
-            try
-            {
-                FilteredClients = Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
-                PickerSearch.ItemsSource = FilteredClients.Select(c => c.FullName).ToList();
-            }
-            catch (Exception){ /* ignored */ }
-        }
+        catch (Exception){ /* ignored */ }
     }
     
     void OnPickerSearchSelectedIndexChanged(object sender, EventArgs e)
