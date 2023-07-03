@@ -5,31 +5,29 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:Class="Aassur.MainPage"
              xmlns:components="using:Aassur.Resources.Components"
-             xmlns:compatibility="using:Microsoft.Maui.Controls.Compatibility"
              Background="{StaticResource Secondary}">
 
     <StackLayout Orientation="Vertical" 
                  HorizontalOptions="Center" 
                  VerticalOptions="Center" 
-                 Spacing="10">
+                 Spacing="20">
         
         <StackLayout.Resources>
             <system:Double x:Key="lineHeight">220</system:Double>
             <system:Double x:Key="iconSize">150</system:Double>
-            <system:Single x:Key="cornerRadius">8</system:Single>
         </StackLayout.Resources>
 
-        <Grid ColumnSpacing="30">
+        <Grid ColumnSpacing="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <!-- Clients -->
             <Frame Grid.Column="0" 
                    Background="Transparent"
                    BorderColor="{StaticResource Tertiary}"
-                   CornerRadius="{StaticResource cornerRadius}"
+                   CornerRadius="12"
                    Padding="5">
                 
                 <Grid ColumnSpacing="6">
@@ -42,7 +40,6 @@
                            HeightRequest="{StaticResource lineHeight}"
                            Background="{StaticResource Tertiary}"
                            BorderColor="{StaticResource Tertiary}"
-                           CornerRadius="{StaticResource cornerRadius}"
                            Padding="0">
 
                         <StackLayout Orientation="Vertical" Padding="5">
@@ -97,7 +94,6 @@
 
                         <Frame Background="Transparent"
                                BorderColor="Transparent"
-                               CornerRadius="{StaticResource cornerRadius}"
                                Padding="0">
                             <components:ContentButton BackgroundColor="Transparent"
                                                       WidthRequest="{StaticResource lineHeight}"
@@ -115,14 +111,19 @@
             </Frame>
 
             <!-- Map -->
-            <Grid Grid.Column="1"
-                  WidthRequest="{StaticResource lineHeight}"
-                  HeightRequest="{StaticResource lineHeight}">
+            <Frame Grid.Column="1" 
+                   Background="Transparent"
+                   BorderColor="{StaticResource Tertiary}"
+                   CornerRadius="12"
+                   Padding="5">
+                
+                <Grid WidthRequest="{StaticResource lineHeight}"
+                      HeightRequest="{StaticResource lineHeight}">
 
                 <Frame Background="Transparent"
-                       BorderColor="{StaticResource Tertiary}"
-                       CornerRadius="{StaticResource cornerRadius}"
+                       BorderColor="Transparent"
                        Padding="0">
+                    
                     <components:ContentButton BackgroundColor="Transparent"
                                               WidthRequest="{StaticResource lineHeight}"
                                               HeightRequest="{StaticResource lineHeight}">
@@ -135,6 +136,8 @@
                     </components:ContentButton>
                 </Frame>
             </Grid>
+            </Frame>
+            
         </Grid>
 
         <Grid>
