@@ -15,9 +15,7 @@ public class DbData
     }
 
     #endregion
-
-    #region Functions
-
+    
     private async void SetClients()
     {
         var clients = await GetAllClientsAsync();
@@ -28,6 +26,4 @@ public class DbData
     {
         return await SqliteService.Client.GetAllAsync();
     }
-
-    #endregion
 }

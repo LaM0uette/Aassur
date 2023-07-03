@@ -7,7 +7,7 @@ public partial class AppShell
         InitializeComponent();
 
         Items.Add(DeviceInfo.Current.Idiom.Equals(DeviceIdiom.Phone) 
-            ? new ShellContent {Content = new MainPageMobile()} 
+            ? new ShellContent {Content = new MainPage()} 
             : new ShellContent {Content = new MainPage()});
     }
 }

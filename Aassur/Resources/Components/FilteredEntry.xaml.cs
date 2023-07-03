@@ -29,7 +29,9 @@ public partial class FilteredEntry
 
     private async void AddAllClientsInPicker()
     {
-        PickerSearch.ItemsSource = (await DbData.GetAllClientsAsync()).Select(c => c.FullName).ToList();
+        while (!App.DbData.Clients.Any()){await Task.Delay(100); }
+        
+        PickerSearch.ItemsSource = App.DbData.Clients.Select(c => c.FullName).ToList();
     }
 
     #endregion
