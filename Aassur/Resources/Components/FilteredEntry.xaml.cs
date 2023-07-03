@@ -34,8 +34,6 @@ public partial class FilteredEntry
 
     private void OnEntrySearchTextChanged(object sender, TextChangedEventArgs e)
     {
-        if (Clients.Any(c => c.FullName.ToLower().Equals(EntrySearch.Text.ToLower()))) return;
-        
         try
         {
             FilteredClients = Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
@@ -54,7 +52,7 @@ public partial class FilteredEntry
         {
             string selectedPersonName = (string)picker.ItemsSource[selectedIndex];
             
-            EntrySearch.Text = selectedPersonName;
+            //EntrySearch.Text = selectedPersonName;
         }
     }
 

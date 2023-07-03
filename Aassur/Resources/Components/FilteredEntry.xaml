@@ -5,26 +5,16 @@
              xmlns:components="using:Aassur.Resources.Components"
              x:Class="Aassur.Resources.Components.FilteredEntry">
     
-    <Grid ColumnSpacing="5" HeightRequest="44">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="44" />
-        </Grid.ColumnDefinitions>
-        
-        <Entry Grid.Column="0"
-               x:Name="EntrySearch"
+    <StackLayout Orientation="Horizontal" Spacing="5">
+        <Entry x:Name="EntrySearch"
                HeightRequest="44"
-               Placeholder="Rechercher un client..."
-               TextChanged="OnEntrySearchTextChanged" />
-        
-        <Picker Grid.Column="1" 
-                x:Name="PickerSearch"
-                HorizontalTextAlignment="Center" 
-                HorizontalOptions="Center"
-                SelectedIndexChanged="OnPickerSearchSelectedIndexChanged"/>
-        
-        <Grid Grid.Column="2">
+               MinimumWidthRequest="200"
+               Placeholder="Filter un client..."
+               TextChanged="OnEntrySearchTextChanged"/>
+            
+        <Picker x:Name="PickerSearch" SelectedIndexChanged="OnPickerSearchSelectedIndexChanged"/>
+            
+        <Grid>
             <Frame BackgroundColor="Transparent"
                    BorderColor="Transparent"
                    CornerRadius="8"
@@ -43,6 +33,6 @@
                 </components:ContentButton>
             </Frame>
         </Grid>
-    </Grid>
+    </StackLayout>
     
 </ContentView>
