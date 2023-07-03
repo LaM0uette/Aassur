@@ -48,17 +48,19 @@
                             <components:FilteredEntry />
                             
                             <!-- Title recent client -->
-                            <Label Text="Clients récents"
-                                   TextColor="{StaticResource Secondary}"
-                                   FontSize="30"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Start"
-                                   VerticalOptions="Center" />
+                            <StackLayout Orientation="Vertical" Margin="0, 15, 0, 8">
+                                <Label Text="Clients récents"
+                                       TextColor="{StaticResource Secondary}"
+                                       FontSize="30"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center" />
                             
-                            <Line Background="{StaticResource Secondary}" Margin="0, 0, 0, 5"/>
+                                <Line StrokeThickness="2" Background="{StaticResource Secondary}"/>
+                            </StackLayout>
                             
                             <!-- List recent client -->
-                            <Grid>
+                            <Grid Margin="10, 0, 0, 0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="2" />
@@ -74,15 +76,15 @@
                                 
                                 <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Arnaud de VILLELE - 99ans - Ablon</Label>
                                 <components:MenuFicheClientButton Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonMenuFicheClient}" />
-                                <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
+                                <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" StrokeThickness="2" Background="{StaticResource Secondary}"/>
                                 
                                 <Label Grid.Row="2" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Paul MOREAU - 51ans - Rouen</Label>
                                 <components:MenuFicheClientButton Grid.Row="2" Grid.Column="1" Style="{StaticResource ButtonMenuFicheClient}" />
-                                <Line Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
+                                <Line Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" StrokeThickness="2" Background="{StaticResource Secondary}"/>
                                 
                                 <Label Grid.Row="4" Grid.Column="0" VerticalTextAlignment="End" TextColor="{StaticResource White}">Mr Test ETRETEST - 24ans - Lyon</Label>
                                 <components:MenuFicheClientButton Grid.Row="4" Grid.Column="1" Style="{StaticResource ButtonMenuFicheClient}" />
-                                <Line Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Secondary}"/>
+                                <Line Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" StrokeThickness="2" Background="{StaticResource Secondary}"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
