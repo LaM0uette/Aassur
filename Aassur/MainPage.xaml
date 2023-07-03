@@ -60,7 +60,9 @@
                             </StackLayout>
                             
                             <!-- List recent client -->
-                            <StackLayout x:Name="StackLayoutRecentClients" Orientation="Vertical"/>
+                            <StackLayout x:Name="StackLayoutRecentClients" 
+                                         Orientation="Vertical"
+                                         Margin="10, 0, 0, 0"/>
                             
                             <!--<Grid Margin="10, 0, 0, 0">
                                  <Grid.RowDefinitions>

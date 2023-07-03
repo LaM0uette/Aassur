@@ -29,7 +29,7 @@ public partial class MainPage
 
         foreach(var client in clientsList)
         {
-            StackLayoutRecentClients.Children.Add(ClientElementsFactory.CreateClientElements(client.FullName));
+            StackLayoutRecentClients.Children.Add(ClientElementsFactory.CreateClientElements(client));
         }
     }
 

@@ -1,15 +1,16 @@
-﻿using Aassur.Resources.Components;
+﻿using Aassur.Core.Model;
+using Aassur.Resources.Components;
 using Microsoft.Maui.Controls.Shapes;
 
 namespace Aassur.Core.Factory;
 
 public static class ClientElementsFactory
 {
-    public static Grid CreateClientElements(string clientInfo)
+    public static Grid CreateClientElements(Client client)
     {
         var grid = CreateGrid(2);
             
-        var label = CreateLabel(clientInfo);
+        var label = CreateLabel(client);
         AddElementToGrid(grid, label, row: 0, column: 0);
 
         var menuButton = new MenuFicheClientButton();
@@ -24,7 +25,7 @@ public static class ClientElementsFactory
     private static Grid CreateGrid(int size)
     {
         var grid = new Grid();
-        for (int i = 0; i < size; i++)
+        for (var i = 0; i < size; i++)
         {
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
@@ -33,11 +34,11 @@ public static class ClientElementsFactory
         return grid;
     }
 
-    private static Label CreateLabel(string text)
+    private static Label CreateLabel(Client client)
     {
         return new Label
         {
-            Text = text,
+            Text = $"{client.CivilityId} {client.FullName} - {client.DateOfBirth:M/d/yy} - {client.CityId??0}",
             TextColor = Color.FromRgb(255, 0, 0),
             VerticalTextAlignment = TextAlignment.End
         };
