@@ -8,12 +8,12 @@ public static class ClientElementsFactory
 {
     public static Grid CreateClientElements(Client client)
     {
-        var grid = CreateGrid(2);
+        var grid = CreateGrid();
             
         var label = CreateLabel(client);
         AddElementToGrid(grid, label, row: 0, column: 0);
-
-        var menuButton = new MenuFicheClientButton();
+        
+        var menuButton = CreateMenuFicheClientButton();
         AddElementToGrid(grid, menuButton, row: 0, column: 1);
 
         var line = CreateLine();
@@ -22,14 +22,16 @@ public static class ClientElementsFactory
         return grid;
     }
 
-    private static Grid CreateGrid(int size)
+    private static Grid CreateGrid()
     {
         var grid = new Grid();
-        for (var i = 0; i < size; i++)
-        {
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-        }
+        
+        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(25) });
+        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2) });
+        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(5) });
+        
+        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100) });
 
         return grid;
     }
@@ -39,8 +41,19 @@ public static class ClientElementsFactory
         return new Label
         {
             Text = $"{client.CivilityId} {client.FullName} - {client.DateOfBirth:M/d/yy} - {client.CityId??0}",
-            TextColor = Color.FromRgb(255, 0, 0),
+            TextColor = Color.FromRgb(227, 233, 234),
             VerticalTextAlignment = TextAlignment.End
+        };
+    }
+    
+    private static MenuFicheClientButton CreateMenuFicheClientButton()
+    {
+        return new MenuFicheClientButton
+        {
+            Text = "Fiche client",
+            TextColor = Color.FromRgb(55, 190, 189),
+            BorderColor = Colors.Transparent,
+            BorderWidth = 0
         };
     }
 
@@ -49,11 +62,11 @@ public static class ClientElementsFactory
         return new Line
         {
             StrokeThickness = 2,
-            BackgroundColor = Color.FromRgba(0, 255, 0, 0.1)
+            BackgroundColor = Color.FromRgb(40, 47, 46)
         };
     }
 
-    private static void AddElementToGrid(Grid grid, View element, int row, int column, int columnSpan = 1)
+    private static void AddElementToGrid(Layout grid, VisualElement element, int row, int column, int columnSpan = 1)
     {
         Grid.SetRow(element, row);
         Grid.SetColumn(element, column);

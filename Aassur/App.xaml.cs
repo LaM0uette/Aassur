@@ -31,4 +31,19 @@ public partial class App
         using var fileStream = File.Create(destinationFile);
         stream.CopyTo(fileStream);
     }
+    
+    protected override Window CreateWindow(IActivationState activationState)
+    {
+        var window = base.CreateWindow(activationState);
+
+        const int newWidth = 1100;
+        const int newHeight = 700;
+        
+        window.Width = newWidth;
+        window.MinimumWidth = newWidth;
+        window.Height = newHeight;
+        window.MinimumHeight = newHeight;
+
+        return window;
+    }
 }
