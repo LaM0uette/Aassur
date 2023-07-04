@@ -34,6 +34,12 @@ public partial class App
 
         return window;
     }
+    
+    public static void ChangeMainPage(Page page)
+    {
+        if (Current is not null) 
+            Current.MainPage = page;
+    }
 
     #endregion
 }
