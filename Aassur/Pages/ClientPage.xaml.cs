@@ -1,12 +1,13 @@
 ﻿using Aassur.Core.Model;
+using Aassur.View;
 
-namespace Aassur.View;
+namespace Aassur.Pages;
 
-public partial class FicheClientView
+public partial class ClientPage : ContentPage
 {
     #region Statements
 
-    public FicheClientView(Client client)
+    public ClientPage(Client client)
     {
         InitializeComponent();
         

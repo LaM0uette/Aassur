@@ -60,7 +60,7 @@ public static class ClientElementsFactory
             BorderWidth = 0
         };
         
-        button.Clicked += (_, _) => App.ChangeMainPage(new FicheClientPage(client));
+        button.Clicked += (_, _) => App.ChangeMainPage(new ClientPage(client));
 
         return button;
     }
