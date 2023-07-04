@@ -1,5 +1,7 @@
-﻿using Aassur.Core.Model;
+﻿using System.Globalization;
+using Aassur.Core.Model;
 using Aassur.Core.Services;
+using Aassur.Core.Utils;
 
 namespace Aassur;
 
@@ -30,7 +32,7 @@ public partial class MainPageMobile
             Id = count,
             FirstName = name,
             LastName = $"{count}_CaVa",
-            DateOfBirth = DateTime.Now
+            DateOfBirth = DateTime.Now.ToDateString()
         };
 
         await SqliteService.Client.AddAsync(client);

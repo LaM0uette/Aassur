@@ -1,4 +1,6 @@
-﻿using Aassur.Core.Services.Repository;
+﻿using System.Globalization;
+using Aassur.Core.Services.Repository;
+using Aassur.Core.Utils;
 using SQLite;
 
 namespace Aassur.Core.Model;
@@ -16,7 +18,7 @@ public class Client : IIdentifiable
     public string FixeNumber { get; set; }
     public string Mail { get; set; }
     public string CountryOfResidence { get; set; }
-    public DateTime? DateOfBirth { get; set; }
+    public string DateOfBirth { get; set; }
     [Indexed] public int FamilyStatusId { get; set; }
     public string Function { get; set; }
     public string Foyer { get; set; }
@@ -28,7 +30,7 @@ public class Client : IIdentifiable
     public string Note { get; set; }
     
     [Ignore] public string FullName => $"{FirstName} {LastName}";
-    [Ignore] public int Age => DateOfBirth.HasValue ? DateTime.Now.Year - DateOfBirth.Value.Year : 0;
+    [Ignore] public int Age => DateTime.Now.Year - DateOfBirth.ToDateTime().Year;
 
     public Client()
     {

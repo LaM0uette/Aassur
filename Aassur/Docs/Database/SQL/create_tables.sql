@@ -24,7 +24,7 @@ CREATE TABLE `Client`
     `FixeNumber`               varchar,
     `Mail`                     varchar,
     `CountryOfResidence`       varchar,
-    `DateOfBirth`              datetime,
+    `DateOfBirth`              datetime not null,
     `FamilyStatusId`           integer,
     `Function`                 varchar,
     `Foyer`                    varchar,
