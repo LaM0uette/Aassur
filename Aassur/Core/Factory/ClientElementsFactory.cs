@@ -1,5 +1,6 @@
 ﻿using Aassur.Core.Model;
 using Aassur.Resources.Components;
+using Aassur.View;
 using Microsoft.Maui.Controls.Shapes;
 
 namespace Aassur.Core.Factory;
@@ -13,7 +14,7 @@ public static class ClientElementsFactory
         var label = CreateLabel(client);
         AddElementToGrid(grid, label, row: 0, column: 0);
         
-        var menuButton = CreateMenuFicheClientButton();
+        var menuButton = CreateMenuFicheClientButton(client.Id);
         AddElementToGrid(grid, menuButton, row: 0, column: 1);
 
         var line = CreateLine();
@@ -49,15 +50,22 @@ public static class ClientElementsFactory
         };
     }
     
-    private static MenuFicheClientButton CreateMenuFicheClientButton()
+    private static MenuFicheClientButton CreateMenuFicheClientButton(int clientId)
     {
-        return new MenuFicheClientButton
+        var button = new MenuFicheClientButton
         {
             Text = "Fiche client",
             TextColor = Color.FromRgb(55, 190, 189),
             BorderColor = Colors.Transparent,
             BorderWidth = 0
         };
+        
+        button.Clicked += (_, _) =>
+        {
+            if (Application.Current != null) Application.Current.MainPage = new NavigationPage(new FicheClientView());
+        };
+
+        return button;
     }
 
     private static Line CreateLine()
