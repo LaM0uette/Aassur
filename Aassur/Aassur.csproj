@@ -78,6 +78,7 @@
       <EmbeddedResource Include="Core\DataBase\Aassur.db">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </EmbeddedResource>
+
     </ItemGroup>
 
 

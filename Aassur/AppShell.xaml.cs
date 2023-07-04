@@ -1,4 +1,6 @@
-﻿namespace Aassur;
+﻿using Aassur.View;
+
+namespace Aassur;
 
 public partial class AppShell
 {
@@ -8,9 +10,9 @@ public partial class AppShell
             
         // Items.Add(DeviceInfo.Current.Idiom.Equals(DeviceIdiom.Phone) 
         //     ? new ShellContent {Content = new MainPageMobile()} 
-        //     : new ShellContent {Content = new MainPage()});
+        //     : new ShellContent {Content = new MenuPage()});
         
         // TODO: Remove this after finishing the mobile version
-        Items.Add(new ShellContent {Content = new MainPage()});
+        Items.Add(new ShellContent {Content = new MenuPage()});
     }
 }
