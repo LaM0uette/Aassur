@@ -10,6 +10,7 @@
     <StackLayout Orientation="Vertical" 
                  HorizontalOptions="Center" 
                  VerticalOptions="Center" 
+                 Margin="10"
                  Spacing="20">
         
         <StackLayout.Resources>
@@ -30,7 +31,7 @@
                    CornerRadius="12"
                    Padding="5">
                 
-                <Grid ColumnSpacing="6">
+                <Grid ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
