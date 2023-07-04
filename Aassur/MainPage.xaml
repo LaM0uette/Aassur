@@ -18,6 +18,7 @@
             <system:Double x:Key="iconSize">150</system:Double>
         </StackLayout.Resources>
 
+        <!-- Top -->
         <Grid ColumnSpacing="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -120,6 +121,7 @@
             </Frame>
         </Grid>
 
+        <!-- Bottom -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />

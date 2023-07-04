@@ -99,8 +99,10 @@ CREATE INDEX Idx_Meeting_Id ON Meeting (Id);
 CREATE TABLE `News`
 (
     `Id`   integer primary key autoincrement,
+    `NewsId`   integer,
     `Date` text,
-    `Note` varchar
+    `Note` varchar,
+    foreign key (`NewsId`) references `ListNews` (`Id`)
 );
 CREATE INDEX Idx_News_Id ON News (Id);
 
@@ -150,3 +152,13 @@ CREATE TABLE `ListCompany`
     `Partner` integer(1)
 );
 CREATE INDEX Idx_ListCompany_Id ON ListCompany (Id);
+
+CREATE TABLE `ListNews`
+(
+    `Id`   integer primary key autoincrement,
+    `Name` varchar,
+    `Color` varchar(7)
+);
+CREATE INDEX Idx_ListNews_Id ON ListNews (Id);
+
+
