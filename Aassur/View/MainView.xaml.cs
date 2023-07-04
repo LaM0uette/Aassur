@@ -4,11 +4,11 @@ using Aassur.Core.Model;
 
 namespace Aassur.View;
 
-public partial class MenuPage
+public partial class MainView
 {
     #region Statements
 
-    public MenuPage()
+    public MainView()
     {
         InitializeComponent();
         

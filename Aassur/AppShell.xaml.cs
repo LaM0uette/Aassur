@@ -13,6 +13,6 @@ public partial class AppShell
         //     : new ShellContent {Content = new MenuPage()});
         
         // TODO: Remove this after finishing the mobile version
-        Items.Add(new ShellContent {Content = new MenuPage()});
+        Items.Add(new ShellContent {Content = new MainView()});
     }
 }
