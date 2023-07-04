@@ -1,4 +1,5 @@
-﻿using Aassur.View;
+﻿using Aassur.Pages;
+using Aassur.View;
 
 namespace Aassur;
 
@@ -13,6 +14,6 @@ public partial class AppShell
         //     : new ShellContent {Content = new MenuPage()});
         
         // TODO: Remove this after finishing the mobile version
-        Items.Add(new ShellContent {Content = new MainView()});
+        Items.Add(new ShellContent {Content = new MenuPage()});
     }
 }

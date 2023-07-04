@@ -1,6 +1,6 @@
 ﻿using Aassur.Core.Model;
+using Aassur.Pages;
 using Aassur.Resources.Components;
-using Aassur.View;
 using Microsoft.Maui.Controls.Shapes;
 
 namespace Aassur.Core.Factory;
@@ -60,7 +60,7 @@ public static class ClientElementsFactory
             BorderWidth = 0
         };
         
-        button.Clicked += (_, _) => App.ChangeMainPage(new FicheClientView(client));
+        button.Clicked += (_, _) => App.ChangeMainPage(new FicheClientPage(client));
 
         return button;
     }
