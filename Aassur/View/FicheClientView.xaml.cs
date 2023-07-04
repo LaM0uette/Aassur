@@ -10,7 +10,7 @@ public partial class FicheClientView
     {
         InitializeComponent();
         
-        btn.Text = client.FullName;
+        frame.Content = new TestView();
     }
 
     #endregion
