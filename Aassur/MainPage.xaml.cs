@@ -19,7 +19,10 @@ public partial class MainPage
 
     private async void Test()
     {
-        while (!App.DbData.Clients.Any()){await Task.Delay(100); }
+        while (!App.DbData.Clients.Any() && !App.DbData.ListCivility.Any())
+        {
+            await Task.Delay(100);
+        }
         
         var clientsList = App.DbData.Clients
             .Where(client => client.LastModificationDate.HasValue)

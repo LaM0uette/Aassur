@@ -7,23 +7,29 @@ public class DbData
 {
     #region Statements
 
-    public IEnumerable<Client> Clients { get; set; } = new List<Client>();
+    public IEnumerable<Client> Clients { get; private set; } = new List<Client>();
+    public IEnumerable<ListCivility> ListCivility { get; private set; } = new List<ListCivility>();
 
     public DbData()
     {
-        Task.Run(SetClients);
+        Task.Run(SetDbDatas);
     }
 
     #endregion
     
-    private async void SetClients()
+    private async void SetDbDatas()
     {
-        var clients = await GetAllClientsAsync();
-        Clients = clients;
+        Clients = await GetAllClientsAsync();
+        ListCivility = await GetAllListCivilityAsync();
     }
-    
-    public static async Task<IEnumerable<Client>> GetAllClientsAsync()
+
+    private static async Task<IEnumerable<Client>> GetAllClientsAsync()
     {
         return await SqliteService.Client.GetAllAsync();
+    }
+    
+    private static async Task<IEnumerable<ListCivility>> GetAllListCivilityAsync()
+    {
+        return await SqliteService.ListCivility.GetAllAsync();
     }
 }
