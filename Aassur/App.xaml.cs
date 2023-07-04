@@ -10,8 +10,8 @@ public partial class App
     public App()
     {
         CreateSqliteDbIfNotExist();
-        
         InitializeComponent();
+        
         MainPage = new AppShell();
     }
 

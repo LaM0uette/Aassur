@@ -24,4 +24,9 @@ public class DbData
         ListCivility = await SqliteService.ListCivility.GetAllAsync();
         ListCity = await SqliteService.ListCity.GetAllAsync();
     }
+    
+    public static bool ShouldDelay()
+    {
+        return !App.DbData.Clients.Any() && !App.DbData.ListCivility.Any() && !App.DbData.ListCity.Any();
+    }
 }

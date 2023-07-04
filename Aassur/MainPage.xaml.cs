@@ -1,4 +1,5 @@
-﻿using Aassur.Core.Factory;
+﻿using Aassur.Core.Data;
+using Aassur.Core.Factory;
 
 namespace Aassur;
 
@@ -19,10 +20,7 @@ public partial class MainPage
 
     private async void Test()
     {
-        while (!App.DbData.Clients.Any() && !App.DbData.ListCivility.Any() && !App.DbData.ListCity.Any())
-        {
-            await Task.Delay(100);
-        }
+        while (DbData.ShouldDelay()){ await Task.Delay(100); }
         
         var clientsList = App.DbData.Clients
             .OrderByDescending(client => client.LastModificationDate)
