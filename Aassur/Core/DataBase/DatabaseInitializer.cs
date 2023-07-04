@@ -2,11 +2,17 @@
 
 namespace Aassur.Core.DataBase;
 
-public class DatabaseInitializer
+public static class DatabaseInitializer
 {
+    #region Statements
+
     private const string _resourceName = "Aassur.Core.DataBase.Aassur.db";
     private const string _destinationDirectoryName = "Aassur";
     private const string _destinationFileName = "Aassur.db";
+
+    #endregion
+
+    #region Functions
 
     public static void CreateSqliteDbIfNotExist()
     {
@@ -16,7 +22,7 @@ public class DatabaseInitializer
         CreateDirectory(destinationDirectory);
 
         var destinationFile = Path.Combine(destinationDirectory, _destinationFileName);
-
+        
         if (FileExists(destinationFile)) 
             return;
 
@@ -47,4 +53,6 @@ public class DatabaseInitializer
         using var fileStream = File.Create(destinationFile);
         stream.CopyTo(fileStream);
     }
+
+    #endregion
 }
