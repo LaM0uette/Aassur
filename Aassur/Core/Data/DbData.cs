@@ -20,23 +20,8 @@ public class DbData
     
     private async void SetDbDatas()
     {
-        Clients = await GetAllClientsAsync();
-        ListCivility = await GetAllListCivilityAsync();
-        ListCity = await GetAllListCityAsync();
-    }
-
-    private static async Task<IEnumerable<Client>> GetAllClientsAsync()
-    {
-        return await SqliteService.Client.GetAllAsync();
-    }
-    
-    private static async Task<IEnumerable<ListCivility>> GetAllListCivilityAsync()
-    {
-        return await SqliteService.ListCivility.GetAllAsync();
-    }
-    
-    private static async Task<IEnumerable<ListCity>> GetAllListCityAsync()
-    {
-        return await SqliteService.ListCity.GetAllAsync();
+        Clients = await SqliteService.Client.GetAllAsync();
+        ListCivility = await SqliteService.ListCivility.GetAllAsync();
+        ListCity = await SqliteService.ListCity.GetAllAsync();
     }
 }
