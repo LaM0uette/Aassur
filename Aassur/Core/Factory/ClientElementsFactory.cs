@@ -14,7 +14,7 @@ public static class ClientElementsFactory
         var label = CreateLabel(client);
         AddElementToGrid(grid, label, row: 0, column: 0);
         
-        var menuButton = CreateMenuFicheClientButton(client.Id);
+        var menuButton = CreateMenuFicheClientButton(client);
         AddElementToGrid(grid, menuButton, row: 0, column: 1);
 
         var line = CreateLine();
@@ -50,7 +50,7 @@ public static class ClientElementsFactory
         };
     }
     
-    private static MenuFicheClientButton CreateMenuFicheClientButton(int clientId)
+    private static MenuFicheClientButton CreateMenuFicheClientButton(Client client)
     {
         var button = new MenuFicheClientButton
         {
@@ -60,7 +60,7 @@ public static class ClientElementsFactory
             BorderWidth = 0
         };
         
-        button.Clicked += (_, _) => App.ChangeMainPage(new FicheClientView());
+        button.Clicked += (_, _) => App.ChangeMainPage(new FicheClientView(client));
 
         return button;
     }
