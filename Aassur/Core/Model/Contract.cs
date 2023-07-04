@@ -11,5 +11,5 @@ public class Contract : IIdentifiable
     [Indexed] public int CompanyId { get; set; }
     public string ContractName { get; set; }
     public int? Encours { get; set; }
-    public DateTime OpeningDate { get; set; }
+    public string OpeningDate { get; set; }
 }

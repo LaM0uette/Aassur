@@ -24,14 +24,14 @@ CREATE TABLE `Client`
     `FixeNumber`               varchar,
     `Mail`                     varchar,
     `CountryOfResidence`       varchar,
-    `DateOfBirth`              datetime not null,
+    `DateOfBirth`              text not null,
     `FamilyStatusId`           integer,
     `Function`                 varchar,
     `Foyer`                    varchar,
     `Hobbies`                  varchar,
     `RelatedCustomersClientId` integer,
-    `CreationDate`             datetime,
-    `LastModificationDate`     datetime,
+    `CreationDate`             text,
+    `LastModificationDate`     text,
     `Origin`                   varchar,
     `Note`                     varchar,
     foreign key (`CivilityId`) references ListCivility (`Id`),
@@ -57,7 +57,7 @@ CREATE TABLE `Contract`
     `CompanyId`      integer,
     `ContractName`   varchar,
     `Encours`        integer,
-    `OpeningDate`    bigint,
+    `OpeningDate`    text,
     foreign key (`ClientId`) references `Client` (`Id`),
     foreign key (`TypeContractId`) references `ListTypeContract` (`Id`),
     foreign key (`CompanyId`) references `ListCompany` (`Id`)
@@ -80,7 +80,7 @@ CREATE TABLE `LastContact`
 (
     `Id`       integer primary key autoincrement,
     `ClientId` integer,
-    `Date`     bigint,
+    `Date`     text,
     `Mode`     varchar,
     `Note`     varchar,
     foreign key (`ClientId`) references `Client` (`Id`)
@@ -91,7 +91,7 @@ CREATE INDEX Idx_LastContact_ClientId ON LastContact (ClientId);
 CREATE TABLE `Meeting`
 (
     `Id`   integer primary key autoincrement,
-    `Date` bigint,
+    `Date` text,
     `Name` varchar
 );
 CREATE INDEX Idx_Meeting_Id ON Meeting (Id);
@@ -99,7 +99,7 @@ CREATE INDEX Idx_Meeting_Id ON Meeting (Id);
 CREATE TABLE `News`
 (
     `Id`   integer primary key autoincrement,
-    `Date` bigint,
+    `Date` text,
     `Note` varchar
 );
 CREATE INDEX Idx_News_Id ON News (Id);

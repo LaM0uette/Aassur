@@ -25,7 +25,6 @@ public partial class MainPage
         }
         
         var clientsList = App.DbData.Clients
-            .Where(client => client.LastModificationDate.HasValue)
             .OrderByDescending(client => client.LastModificationDate)
             .Take(3)
             .ToList();

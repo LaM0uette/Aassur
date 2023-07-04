@@ -24,8 +24,8 @@ public class Client : IIdentifiable
     public string Foyer { get; set; }
     public string Hobbies { get; set; }
     [Indexed] public int? RelatedCustomersClientId { get; set; }
-    public DateTime? CreationDate { get; set; }
-    public DateTime? LastModificationDate { get; set; }
+    public string CreationDate { get; set; }
+    public string LastModificationDate { get; set; }
     public string Origin { get; set; }
     public string Note { get; set; }
     
@@ -37,7 +37,7 @@ public class Client : IIdentifiable
         CivilityId = 1;
         TypeClientId = 1;
         FamilyStatusId = 1;
-        CreationDate = DateTime.Now;
-        LastModificationDate = DateTime.Now;
+        CreationDate = DateTime.Now.ToDateString();
+        LastModificationDate = DateTime.Now.ToDateString();
     }
 }
