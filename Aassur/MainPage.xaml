@@ -118,7 +118,6 @@
                 </Frame>
             </Grid>
             </Frame>
-            
         </Grid>
 
         <Grid>
@@ -137,6 +136,7 @@
             <!-- Settings -->
             <Button Grid.Column="2" Text="Button 3" WidthRequest="400" />
         </Grid>
+        
     </StackLayout>
-
+    
 </ContentPage>
