@@ -1,5 +1,4 @@
-﻿using Aassur.Core.Data;
-using Aassur.Core.Model;
+﻿using Aassur.Core.Model;
 using Aassur.Resources.Components;
 using Microsoft.Maui.Controls.Shapes;
 
@@ -40,10 +39,11 @@ public static class ClientElementsFactory
     private static Label CreateLabel(Client client)
     {
         var civility = App.DbData.ListCivility.FirstOrDefault(civility => civility.Id == client.CivilityId)?.Name;
+        var city = App.DbData.ListCity.FirstOrDefault(city => city.Id == client.CityId)?.Name;
         
         return new Label
         {
-            Text = $"{civility} {client.FullName} - {client.DateOfBirth:M/d/yy} - {client.CityId??0}",
+            Text = $"{civility} {client.FullName} - {client.Age}ans - {city}",
             TextColor = Color.FromRgb(227, 233, 234),
             VerticalTextAlignment = TextAlignment.End
         };

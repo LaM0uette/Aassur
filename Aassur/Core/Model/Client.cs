@@ -28,6 +28,7 @@ public class Client : IIdentifiable
     public string Note { get; set; }
     
     [Ignore] public string FullName => $"{FirstName} {LastName}";
+    [Ignore] public int Age => DateOfBirth.HasValue ? DateTime.Now.Year - DateOfBirth.Value.Year : 0;
 
     public Client()
     {

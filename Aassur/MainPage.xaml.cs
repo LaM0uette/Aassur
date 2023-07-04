@@ -19,7 +19,7 @@ public partial class MainPage
 
     private async void Test()
     {
-        while (!App.DbData.Clients.Any() && !App.DbData.ListCivility.Any())
+        while (!App.DbData.Clients.Any() && !App.DbData.ListCivility.Any() && !App.DbData.ListCity.Any())
         {
             await Task.Delay(100);
         }

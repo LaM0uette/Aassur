@@ -9,6 +9,7 @@ public class DbData
 
     public IEnumerable<Client> Clients { get; private set; } = new List<Client>();
     public IEnumerable<ListCivility> ListCivility { get; private set; } = new List<ListCivility>();
+    public IEnumerable<ListCity> ListCity { get; private set; } = new List<ListCity>();
 
     public DbData()
     {
@@ -21,6 +22,7 @@ public class DbData
     {
         Clients = await GetAllClientsAsync();
         ListCivility = await GetAllListCivilityAsync();
+        ListCity = await GetAllListCityAsync();
     }
 
     private static async Task<IEnumerable<Client>> GetAllClientsAsync()
@@ -31,5 +33,10 @@ public class DbData
     private static async Task<IEnumerable<ListCivility>> GetAllListCivilityAsync()
     {
         return await SqliteService.ListCivility.GetAllAsync();
+    }
+    
+    private static async Task<IEnumerable<ListCity>> GetAllListCityAsync()
+    {
+        return await SqliteService.ListCity.GetAllAsync();
     }
 }
