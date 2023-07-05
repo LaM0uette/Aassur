@@ -1,5 +1,6 @@
 ﻿using Aassur.Core.Data;
 using Aassur.Core.Model;
+using Aassur.Core.Services;
 using Aassur.View;
 
 namespace Aassur.Pages;
@@ -24,7 +25,7 @@ public partial class ClientPage
     
     private void ButtonReturn_OnClicked(object sender, EventArgs e)
     {
-        App.ChangeMainPage(new MenuPage());
+        ReturnToMenuPage();
     }
 
     private void ButtonTabControl0_OnClicked(object sender, EventArgs e)
@@ -51,8 +52,12 @@ public partial class ClientPage
     {
     }
     
-    private void ButtonIconDelete_OnClicked(object sender, EventArgs e)
+    private async void ButtonIconDelete_OnClicked(object sender, EventArgs e)
     {
+        await SqliteService.Client.DeleteAsync(_client.Id);
+        await App.DbData.RefreshDataAsync();
+        
+        ReturnToMenuPage();
     }
     
     private void ButtonIconMap_OnClicked(object sender, EventArgs e)
@@ -62,6 +67,11 @@ public partial class ClientPage
     #endregion
 
     #region Functions
+    
+    private static void ReturnToMenuPage()
+    {
+        App.ChangeMainPage(new MenuPage());
+    }
     
     private void InitializeView()
     {

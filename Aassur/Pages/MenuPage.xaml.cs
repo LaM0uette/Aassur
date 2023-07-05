@@ -23,10 +23,17 @@ public partial class MenuPage
     {
         while (DbData.ShouldDelay()){ await Task.Delay(100); }
         
+        ClearRecentClientsFromLayout();
+        
         var clientsList = GetLatestRecentClients();
         AddRecentClientsToLayout(clientsList);
     }
 
+    private void ClearRecentClientsFromLayout()
+    {
+        StackLayoutRecentClients.Children.Clear();
+    }
+    
     private static List<Client> GetLatestRecentClients()
     {
         return App.DbData.Clients

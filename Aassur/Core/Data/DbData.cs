@@ -19,7 +19,12 @@ public class DbData
 
     #endregion
     
-    private async void SetDbDatas()
+    public async Task RefreshDataAsync()
+    {
+        await Task.Run(SetDbDatas);
+    }
+    
+    private async Task SetDbDatas()
     {
         Clients = await SqliteService.Client.GetAllAsync();
         ListCivility = await SqliteService.ListCivility.GetAllAsync();
