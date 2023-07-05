@@ -26,13 +26,13 @@
         
             <!-- Onglets -->
             <StackLayout Grid.Row="0" Orientation="Horizontal" Spacing="5" Margin="0, 5">
-                <Button x:Name="ButtonTabControl0" Style="{StaticResource ButtonTabControl}" WidthRequest="200" Clicked="ButtonTabControl_OnClicked" Text="Fiche client"/>
-                <Button x:Name="ButtonTabControl1" Style="{StaticResource ButtonTabControl}" WidthRequest="200" Clicked="ButtonTabControl_OnClicked" Text="Contrats"/>
-                <Button x:Name="ButtonTabControl2" Style="{StaticResource ButtonTabControl}" WidthRequest="200" Clicked="ButtonTabControl_OnClicked" Text="RDV"/>
+                <Button x:Name="ButtonTabControl0" Style="{StaticResource ButtonTabControl}" WidthRequest="200" Clicked="ButtonTabControl0_OnClicked" Text="Fiche client"/>
+                <Button x:Name="ButtonTabControl1" Style="{StaticResource ButtonTabControl}" WidthRequest="200" Clicked="ButtonTabControl1_OnClicked" Text="Contrats"/>
+                <Button x:Name="ButtonTabControl2" Style="{StaticResource ButtonTabControl}" WidthRequest="200" Clicked="ButtonTabControl2_OnClicked" Text="RDV"/>
             </StackLayout>
         
             <!-- View -->
-            <Frame x:Name="FrameView" Grid.Row="1">
+            <Frame x:Name="FrameView" Grid.Row="1" Padding="0">
                 
             </Frame>
         </Grid>

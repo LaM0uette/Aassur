@@ -8,8 +8,12 @@ public partial class ClientPage
 {
     #region Statements
 
+    private readonly Client _client;
+    
     public ClientPage(Client client)
     {
+        _client = client;
+        
         InitializeComponent();
         InitializeView();
     }
@@ -23,7 +27,27 @@ public partial class ClientPage
         App.ChangeMainPage(new MenuPage());
     }
 
-    private void ButtonTabControl_OnClicked(object sender, EventArgs e)
+    private void ButtonTabControl0_OnClicked(object sender, EventArgs e)
+    {
+        SetButtonTabControlBackground(sender);
+        ChangeFrameView(new FicheClientView(_client));
+    }
+    
+    private void ButtonTabControl1_OnClicked(object sender, EventArgs e)
+    {
+        SetButtonTabControlBackground(sender);
+        ChangeFrameView(new FicheClientView(_client));
+        
+    }
+    
+    private void ButtonTabControl2_OnClicked(object sender, EventArgs e)
+    {
+        SetButtonTabControlBackground(sender);
+        ChangeFrameView(new FicheClientView(_client));
+        
+    }
+
+    private void SetButtonTabControlBackground(object sender)
     {
         ResetBackgroundButtons();
 
@@ -37,7 +61,7 @@ public partial class ClientPage
     
     private void InitializeView()
     {
-        ChangeFrameView(new TestView());
+        ChangeFrameView(new FicheClientView(_client));
         ButtonTabControl0.BackgroundColor = StaticVar.PrimaryColor;
     }
 
