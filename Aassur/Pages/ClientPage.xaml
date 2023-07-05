@@ -91,7 +91,7 @@
                 </StackLayout>
 
                 <!-- Search client -->
-                <components:FilteredEntrySimply Grid.Column="2"/>
+                <components:FilteredEntrySimply Grid.Column="2" x:Name="FilteredEntrySimply"/>
             </Grid>
 
             <!-- View -->

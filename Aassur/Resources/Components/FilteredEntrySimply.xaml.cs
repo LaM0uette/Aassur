@@ -31,6 +31,11 @@ public partial class FilteredEntrySimply
         
         PickerSearch.ItemsSource = App.DbData.Clients.Select(c => c.FullName).ToList();
     }
+    
+    public void SetPickerSearchSelection(string fullName)
+    {
+        PickerSearch.SelectedItem = fullName;
+    }
 
     #endregion
 }

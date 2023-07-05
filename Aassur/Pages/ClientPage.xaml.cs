@@ -85,6 +85,8 @@ public partial class ClientPage
     {
         ChangeFrameView(new FicheClientView(_client));
         ButtonTabControl0.BackgroundColor = StaticVar.PrimaryColor;
+
+        FilteredEntrySimply.SetPickerSearchSelection(_client.FullName);
     }
 
     private void ChangeFrameView(Microsoft.Maui.Controls.View view)
