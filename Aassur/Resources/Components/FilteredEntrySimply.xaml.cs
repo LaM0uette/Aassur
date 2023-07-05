@@ -1,10 +1,10 @@
 ﻿namespace Aassur.Resources.Components;
 
-public partial class FilteredEntry
+public partial class FilteredEntrySimply 
 {
     #region Statements
     
-    public FilteredEntry()
+    public FilteredEntrySimply()
     {
         InitializeComponent();
 
