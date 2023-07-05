@@ -27,51 +27,64 @@
             </Grid.RowDefinitions>
 
             <!-- Onglets -->
-            <StackLayout Grid.Row="0" Orientation="Horizontal" Spacing="5" Margin="0, 5">
-                
-                <!-- TabButton -->
-                <Button x:Name="ButtonTabControl0" Style="{StaticResource ButtonTabControl}" WidthRequest="150"
-                        Clicked="ButtonTabControl0_OnClicked" Text="Fiche client" />
-                <Button x:Name="ButtonTabControl1" Style="{StaticResource ButtonTabControl}" WidthRequest="150"
-                        Clicked="ButtonTabControl1_OnClicked" Text="Contrats" />
-                <Button x:Name="ButtonTabControl2" Style="{StaticResource ButtonTabControl}" WidthRequest="150"
-                        Clicked="ButtonTabControl2_OnClicked" Text="RDV" />
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                <!-- Icon Button -->
-                <Frame Background="Transparent" BorderColor="Transparent" CornerRadius="8" Padding="0">
-                    <components:ContentButton BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" Clicked="ButtonIconEdit_OnClicked">
-                        <Image Source="crayon.png"
-                               WidthRequest="25"
-                               HeightRequest="25"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Aspect="AspectFill" />
-                    </components:ContentButton>
-                </Frame>
-                
-                <Frame Background="Transparent" BorderColor="Transparent" CornerRadius="8" Padding="0">
-                    <components:ContentButton BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" Clicked="ButtonIconDelete_OnClicked">
-                        <Image Source="effacer.png"
-                               WidthRequest="25"
-                               HeightRequest="25"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Aspect="AspectFill" />
-                    </components:ContentButton>
-                </Frame>
-                
-                <Frame Background="Transparent" BorderColor="Transparent" CornerRadius="8" Padding="0">
-                    <components:ContentButton BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" Clicked="ButtonIconMap_OnClicked">
-                        <Image Source="map.png"
-                               WidthRequest="25"
-                               HeightRequest="25"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Aspect="AspectFill" />
-                    </components:ContentButton>
-                </Frame>
-                
-            </StackLayout>
+                <StackLayout Grid.Column="0" Orientation="Horizontal" Spacing="5" Margin="0, 5">
+
+                    <!-- TabButton -->
+                    <Button x:Name="ButtonTabControl0" Style="{StaticResource ButtonTabControl}" WidthRequest="120"
+                            Clicked="ButtonTabControl0_OnClicked" Text="Fiche client" />
+                    <Button x:Name="ButtonTabControl1" Style="{StaticResource ButtonTabControl}" WidthRequest="120"
+                            Clicked="ButtonTabControl1_OnClicked" Text="Contrats" />
+                    <Button x:Name="ButtonTabControl2" Style="{StaticResource ButtonTabControl}" WidthRequest="120"
+                            Clicked="ButtonTabControl2_OnClicked" Text="RDV" />
+
+                    <!-- Icon Button -->
+                    <Frame Background="Transparent" BorderColor="Transparent" CornerRadius="8" Padding="0">
+                        <components:ContentButton BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40"
+                                                  Clicked="ButtonIconEdit_OnClicked">
+                            <Image Source="crayon.png"
+                                   WidthRequest="25"
+                                   HeightRequest="25"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Aspect="AspectFill" />
+                        </components:ContentButton>
+                    </Frame>
+
+                    <Frame Background="Transparent" BorderColor="Transparent" CornerRadius="8" Padding="0">
+                        <components:ContentButton BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40"
+                                                  Clicked="ButtonIconDelete_OnClicked">
+                            <Image Source="effacer.png"
+                                   WidthRequest="25"
+                                   HeightRequest="25"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Aspect="AspectFill" />
+                        </components:ContentButton>
+                    </Frame>
+
+                    <Frame Background="Transparent" BorderColor="Transparent" CornerRadius="8" Padding="0">
+                        <components:ContentButton BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40"
+                                                  Clicked="ButtonIconMap_OnClicked">
+                            <Image Source="map.png"
+                                   WidthRequest="25"
+                                   HeightRequest="25"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Aspect="AspectFill" />
+                        </components:ContentButton>
+                    </Frame>
+                </StackLayout>
+
+                <!-- Search client -->
+                <components:FilteredEntry Grid.Column="2"/>
+            </Grid>
 
             <!-- View -->
             <Frame x:Name="FrameView" Grid.Row="1" Padding="0">

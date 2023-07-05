@@ -5,14 +5,15 @@
              xmlns:components="using:Aassur.Resources.Components"
              x:Class="Aassur.Resources.Components.FilteredEntry">
     
-    <StackLayout Orientation="Horizontal" Spacing="5">
+    <StackLayout Orientation="Horizontal" Spacing="5" HeightRequest="44">
+        
         <Entry x:Name="EntrySearch"
                HeightRequest="44"
-               MinimumWidthRequest="200"
+               MinimumWidthRequest="120"
                Placeholder="Filter un client..."
                TextChanged="OnEntrySearchTextChanged"/>
             
-        <Picker x:Name="PickerSearch"/>
+        <Picker x:Name="PickerSearch" HeightRequest="44"/>
             
         <Grid>
             <Frame BackgroundColor="Transparent"
