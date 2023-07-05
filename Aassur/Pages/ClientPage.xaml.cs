@@ -17,6 +17,7 @@ public partial class ClientPage
         
         InitializeComponent();
         InitializeView();
+        InitializeClient();
     }
 
     #endregion
@@ -85,7 +86,10 @@ public partial class ClientPage
     {
         ChangeFrameView(new FicheClientView(_client));
         ButtonTabControl0.BackgroundColor = StaticVar.PrimaryColor;
-
+    }
+    
+    private void InitializeClient()
+    {
         FilteredEntrySimply.SetPickerSearchSelection(_client.FullName);
     }
 
