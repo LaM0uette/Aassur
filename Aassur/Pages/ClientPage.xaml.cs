@@ -46,15 +46,19 @@ public partial class ClientPage
         ChangeFrameView(new FicheClientView(_client));
         
     }
-
-    private void SetButtonTabControlBackground(object sender)
+    
+    private void ButtonIconEdit_OnClicked(object sender, EventArgs e)
     {
-        ResetBackgroundButtons();
-
-        if (sender is Button button) 
-            button.BackgroundColor = StaticVar.PrimaryColor;
     }
-
+    
+    private void ButtonIconDelete_OnClicked(object sender, EventArgs e)
+    {
+    }
+    
+    private void ButtonIconMap_OnClicked(object sender, EventArgs e)
+    {
+    }
+    
     #endregion
 
     #region Functions
@@ -70,6 +74,14 @@ public partial class ClientPage
         FrameView.Content = view;
     }
 
+    private void SetButtonTabControlBackground(object sender)
+    {
+        ResetBackgroundButtons();
+
+        if (sender is Button button) 
+            button.BackgroundColor = StaticVar.PrimaryColor;
+    }
+    
     private void ResetBackgroundButtons()
     {
         ButtonTabControl0.BackgroundColor = StaticVar.TertiaryColor;
