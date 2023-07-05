@@ -50,7 +50,7 @@
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="CornerRadius" Value="8"/>
-        <Setter Property="MinimumHeightRequest" Value="60"/>
+        <Setter Property="MinimumHeightRequest" Value="50"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">

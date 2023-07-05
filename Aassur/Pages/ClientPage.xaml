@@ -18,7 +18,7 @@
                 TextColor="{StaticResource Black}" 
                 Clicked="ButtonReturn_OnClicked"/>
         
-        <Grid Margin="20" VerticalOptions="FillAndExpand">
+        <Grid Margin="10" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -33,7 +33,7 @@
         
             <!-- View -->
             <Frame x:Name="FrameView" Grid.Row="1">
-            
+                
             </Frame>
         </Grid>
         
