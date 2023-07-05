@@ -11,7 +11,7 @@ public partial class ClientPage : ContentPage
     {
         InitializeComponent();
         
-        frame.Content = new TestView();
+        FrameView.Content = new TestView();
     }
 
     #endregion
