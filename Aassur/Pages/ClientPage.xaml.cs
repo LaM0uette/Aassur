@@ -1,4 +1,5 @@
-﻿using Aassur.Core.Model;
+﻿using Aassur.Core.Data;
+using Aassur.Core.Model;
 using Aassur.View;
 
 namespace Aassur.Pages;
@@ -12,20 +13,19 @@ public partial class ClientPage : ContentPage
         InitializeComponent();
         
         FrameView.Content = new TestView();
+        
+        ButtonTabControl0.BackgroundColor = StaticVar.PrimaryColor;
     }
 
     #endregion
 
     private void ButtonTabControl_OnClicked(object sender, EventArgs e)
     {
-        var primaryColor = Color.FromRgb(55, 190, 189);
-        var tertiaryColor = Color.FromRgb(58, 71, 70);
-        
-        ButtonTabControl0.BackgroundColor = tertiaryColor;
-        ButtonTabControl1.BackgroundColor = tertiaryColor;
-        ButtonTabControl2.BackgroundColor = tertiaryColor;
+        ButtonTabControl0.BackgroundColor = StaticVar.TertiaryColor;
+        ButtonTabControl1.BackgroundColor = StaticVar.TertiaryColor;
+        ButtonTabControl2.BackgroundColor = StaticVar.TertiaryColor;
 
         if (sender is Button button)
-            button.BackgroundColor = primaryColor;
+            button.BackgroundColor = StaticVar.PrimaryColor;
     }
 }

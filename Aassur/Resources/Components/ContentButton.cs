@@ -1,4 +1,6 @@
-﻿namespace Aassur.Resources.Components;
+﻿using Aassur.Core.Data;
+
+namespace Aassur.Resources.Components;
 
 public class ContentButton : ContentView
 {
@@ -9,12 +11,6 @@ public class ContentButton : ContentView
         var tapGestureRecognizer = new TapGestureRecognizer();
         tapGestureRecognizer.Tapped += (_, _) => Clicked?.Invoke(this, EventArgs.Empty);
         GestureRecognizers.Add(tapGestureRecognizer);
-        
-        var primaryColor = Color.FromRgb(55, 190, 189);
-        if (Application.Current is not null && Application.Current.Resources.TryGetValue("Primary", out var obj) && obj is Color color)
-        {
-            primaryColor = color;
-        }
 
         VisualStateManager.SetVisualStateGroups(this, new VisualStateGroupList
         {
@@ -27,7 +23,7 @@ public class ContentButton : ContentView
                     new VisualState 
                     { 
                         Name = "PointerOver",
-                        Setters = { new Setter { Property = BackgroundColorProperty, Value = primaryColor } }
+                        Setters = { new Setter { Property = BackgroundColorProperty, Value = StaticVar.PrimaryColor } }
                     }
                 }
             }

@@ -1,4 +1,5 @@
-﻿using Aassur.Core.Model;
+﻿using Aassur.Core.Data;
+using Aassur.Core.Model;
 using Aassur.Pages;
 using Aassur.Resources.Components;
 using Microsoft.Maui.Controls.Shapes;
@@ -45,7 +46,7 @@ public static class ClientElementsFactory
         return new Label
         {
             Text = $"{civility} {client.FullName} - {client.Age}ans - {city}",
-            TextColor = Color.FromRgb(227, 233, 234),
+            TextColor = StaticVar.WhiteColor,
             VerticalTextAlignment = TextAlignment.End
         };
     }
@@ -55,7 +56,7 @@ public static class ClientElementsFactory
         var button = new MenuFicheClientButton
         {
             Text = "Fiche client",
-            TextColor = Color.FromRgb(55, 190, 189),
+            TextColor = StaticVar.PrimaryColor,
             BorderColor = Colors.Transparent,
             BorderWidth = 0
         };
@@ -70,7 +71,7 @@ public static class ClientElementsFactory
         return new Line
         {
             StrokeThickness = 2,
-            BackgroundColor = Color.FromRgb(40, 47, 46)
+            BackgroundColor = StaticVar.SecondaryColor
         };
     }
 
