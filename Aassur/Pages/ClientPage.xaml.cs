@@ -17,6 +17,11 @@ public partial class ClientPage
     #endregion
 
     #region Events
+    
+    private void ButtonReturn_OnClicked(object sender, EventArgs e)
+    {
+        App.ChangeMainPage(new MenuPage());
+    }
 
     private void ButtonTabControl_OnClicked(object sender, EventArgs e)
     {
