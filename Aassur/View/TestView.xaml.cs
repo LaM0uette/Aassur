@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Aassur.View;
 
-public partial class TestView : ContentView
+public partial class TestView
 {
     public TestView()
     {

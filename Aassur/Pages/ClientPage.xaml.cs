@@ -4,28 +4,49 @@ using Aassur.View;
 
 namespace Aassur.Pages;
 
-public partial class ClientPage : ContentPage
+public partial class ClientPage
 {
     #region Statements
 
     public ClientPage(Client client)
     {
         InitializeComponent();
-        
-        FrameView.Content = new TestView();
-        
-        ButtonTabControl0.BackgroundColor = StaticVar.PrimaryColor;
+        InitializeView();
     }
 
     #endregion
 
+    #region Events
+
     private void ButtonTabControl_OnClicked(object sender, EventArgs e)
+    {
+        ResetBackgroundButtons();
+
+        if (sender is Button button) 
+            button.BackgroundColor = StaticVar.PrimaryColor;
+    }
+
+    #endregion
+
+    #region Functions
+    
+    private void InitializeView()
+    {
+        ChangeFrameView(new TestView());
+        ButtonTabControl0.BackgroundColor = StaticVar.PrimaryColor;
+    }
+
+    private void ChangeFrameView(Microsoft.Maui.Controls.View view)
+    {
+        FrameView.Content = view;
+    }
+
+    private void ResetBackgroundButtons()
     {
         ButtonTabControl0.BackgroundColor = StaticVar.TertiaryColor;
         ButtonTabControl1.BackgroundColor = StaticVar.TertiaryColor;
         ButtonTabControl2.BackgroundColor = StaticVar.TertiaryColor;
-
-        if (sender is Button button)
-            button.BackgroundColor = StaticVar.PrimaryColor;
     }
+
+    #endregion
 }
