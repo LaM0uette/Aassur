@@ -47,7 +47,7 @@
                         <StackLayout Orientation="Vertical" Padding="5">
                             
                             <!-- Search client -->
-                            <components:FilteredEntry />
+                            <components:FilteredEntry/>
                             
                             <!-- Title recent client -->
                             <StackLayout Orientation="Vertical" Margin="0, 12, 0, 8">

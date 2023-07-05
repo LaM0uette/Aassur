@@ -23,7 +23,8 @@
 
                 <components:ContentButton BackgroundColor="Transparent"
                                           WidthRequest="44"
-                                          HeightRequest="44">
+                                          HeightRequest="44"
+                                          Clicked="SearchButton_OnClicked">
 
                     <Image Source="loupe.png"
                            WidthRequest="32"

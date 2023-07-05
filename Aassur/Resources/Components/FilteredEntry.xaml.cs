@@ -1,4 +1,6 @@
-﻿namespace Aassur.Resources.Components;
+﻿using Aassur.Pages;
+
+namespace Aassur.Resources.Components;
 
 public partial class FilteredEntry
 {
@@ -19,6 +21,14 @@ public partial class FilteredEntry
     {
         var filteredClients = App.DbData.Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
         PickerSearch.ItemsSource = filteredClients.Select(c => c.FullName).ToList();
+    }
+    
+    private void SearchButton_OnClicked(object sender, EventArgs e)
+    {
+        if(PickerSearch?.SelectedItem is null) return;
+        
+        var client = App.DbData.Clients.FirstOrDefault(c => c.FullName == PickerSearch.SelectedItem.ToString());
+        App.ChangeMainPage(new ClientPage(client));
     }
 
     #endregion
