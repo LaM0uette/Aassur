@@ -64,6 +64,14 @@ public partial class ClientPage
     {
     }
     
+    private void ButtonEditOk_OnClicked(object sender, EventArgs e)
+    {
+    }
+    
+    private void ButtonEditCancel_OnClicked(object sender, EventArgs e)
+    {
+    }
+    
     #endregion
 
     #region Functions

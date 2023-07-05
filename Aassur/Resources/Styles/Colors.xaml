@@ -9,11 +9,17 @@
     <Color x:Key="Tertiary">#3A4746</Color>
     <Color x:Key="White">#E3E9EA</Color>
     <Color x:Key="Black">#0F1010</Color>
+    <Color x:Key="Green">#88C858</Color>
+    <Color x:Key="Yellow">#EFA743</Color>
+    <Color x:Key="Red">#D34A5A</Color>
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+    <SolidColorBrush x:Key="GreenBrush" Color="{StaticResource Green}"/>
+    <SolidColorBrush x:Key="YellowBrush" Color="{StaticResource Yellow}"/>
+    <SolidColorBrush x:Key="RedBrush" Color="{StaticResource Red}"/>
     
     
     

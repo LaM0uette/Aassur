@@ -65,6 +65,29 @@
             </VisualStateGroupList>
         </Setter>
     </Style>
+    
+    <Style x:Key="ButtonEdit" TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Green}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="HeightRequest" Value="44"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
 
     <Style TargetType="CheckBox">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />

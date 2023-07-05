@@ -80,6 +80,14 @@
                                    Aspect="AspectFill" />
                         </components:ContentButton>
                     </Frame>
+                    
+                    <!-- Edit ok Button -->
+                    <Button Style="{StaticResource ButtonEdit}" WidthRequest="100" Background="{StaticResource Green}"
+                            Clicked="ButtonEditOk_OnClicked" Text="Valider" />
+                    
+                    <Button Style="{StaticResource ButtonEdit}" WidthRequest="100" Background="{StaticResource Red}"
+                            Clicked="ButtonEditCancel_OnClicked" Text="Annuler" />
+                    
                 </StackLayout>
 
                 <!-- Search client -->
