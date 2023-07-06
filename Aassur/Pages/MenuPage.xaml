@@ -10,7 +10,7 @@
     <StackLayout Orientation="Vertical" 
                  HorizontalOptions="Center" 
                  VerticalOptions="Center" 
-                 Margin="10"
+                 Margin="20"
                  Spacing="20">
         
         <StackLayout.Resources>

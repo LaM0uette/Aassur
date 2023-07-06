@@ -28,9 +28,9 @@ public static class ClientElementsFactory
     {
         var grid = new Grid();
         
-        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(25) });
+        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(24) });
         grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2) });
-        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(5) });
+        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(10) });
         
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100) });
