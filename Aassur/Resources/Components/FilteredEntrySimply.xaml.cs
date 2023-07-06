@@ -1,8 +1,14 @@
-﻿namespace Aassur.Resources.Components;
+﻿using Aassur.Core.Model;
+
+namespace Aassur.Resources.Components;
 
 public partial class FilteredEntrySimply 
 {
     #region Statements
+    
+    public event EventHandler PickerIndexChanged;
+    
+    public Client Client { get; set; }
     
     public FilteredEntrySimply()
     {
@@ -19,6 +25,13 @@ public partial class FilteredEntrySimply
     {
         var filteredClients = App.DbData.Clients.Where(c => c.FullName.ToLower().Contains(EntrySearch.Text.ToLower())).ToList();
         PickerSearch.ItemsSource = filteredClients.Select(c => c.FullName).ToList();
+    }
+    
+    private void PickerSearch_OnSelectedIndexChanged(object sender, EventArgs e)
+    {
+        Client = App.DbData.Clients.FirstOrDefault(c => c.FullName == PickerSearch.SelectedItem.ToString());
+        
+        PickerIndexChanged?.Invoke(this, e);
     }
 
     #endregion

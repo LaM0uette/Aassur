@@ -12,7 +12,7 @@
                Placeholder="Filter un client..."
                TextChanged="OnEntrySearchTextChanged"/>
             
-        <Picker x:Name="PickerSearch" HeightRequest="44"/>
+        <Picker x:Name="PickerSearch" HeightRequest="44" SelectedIndexChanged="PickerSearch_OnSelectedIndexChanged"/>
     </StackLayout>
     
 </ContentView>

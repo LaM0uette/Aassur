@@ -9,7 +9,7 @@ public partial class ClientPage
 {
     #region Statements
 
-    private readonly Client _client;
+    private Client _client;
     
     public ClientPage(Client client)
     {
@@ -55,6 +55,10 @@ public partial class ClientPage
     
     private async void ButtonIconDelete_OnClicked(object sender, EventArgs e)
     {
+        var result = await DisplayAlert("Confirmation", $"Êtes-vous sûr de vouloir supprimer le client {_client.FullName} de la base ?", "Supprimer", "Annuler");
+        
+        if(!result) return;
+        
         await SqliteService.Client.DeleteAsync(_client.Id);
         await App.DbData.RefreshDataAsync();
         
@@ -91,6 +95,12 @@ public partial class ClientPage
     private void InitializeClient()
     {
         FilteredEntrySimply.SetPickerSearchSelection(_client.FullName);
+        FilteredEntrySimply.PickerIndexChanged += OnPickerIndexChanged;
+    }
+
+    private void OnPickerIndexChanged(object sender, EventArgs e)
+    {
+        _client = FilteredEntrySimply.Client;
     }
 
     private void ChangeFrameView(Microsoft.Maui.Controls.View view)
