@@ -51,8 +51,9 @@ public partial class ClientPage
     
     private void ButtonIconEdit_OnClicked(object sender, EventArgs e)
     {
+        SetButtonEditVisibility(true);
     }
-    
+
     private async void ButtonIconDelete_OnClicked(object sender, EventArgs e)
     {
         var result = await DisplayAlert("Confirmation", $"Êtes-vous sûr de vouloir supprimer le client {_client.FullName} de la base ?", "Supprimer", "Annuler");
@@ -69,12 +70,22 @@ public partial class ClientPage
     {
     }
     
-    private void ButtonEditOk_OnClicked(object sender, EventArgs e)
+    private async void ButtonEditOk_OnClicked(object sender, EventArgs e)
     {
+        var result = await DisplayAlert("Confirmation", "Enregistrer les modifications ?", "Valider", "Annuler");
+        
+        if(!result) return;
+        
+        SetButtonEditVisibility(false);
     }
     
-    private void ButtonEditCancel_OnClicked(object sender, EventArgs e)
+    private async void ButtonEditCancel_OnClicked(object sender, EventArgs e)
     {
+        var result = await DisplayAlert("Confirmation", "Annuler les modifications ?", "Annuler", "Retour");
+        
+        if(!result) return;
+        
+        SetButtonEditVisibility(false);
     }
     
     #endregion
@@ -121,6 +132,12 @@ public partial class ClientPage
         ButtonTabControl0.BackgroundColor = StaticVar.TertiaryColor;
         ButtonTabControl1.BackgroundColor = StaticVar.TertiaryColor;
         ButtonTabControl2.BackgroundColor = StaticVar.TertiaryColor;
+    }
+    
+    private void SetButtonEditVisibility(bool visibility)
+    {
+        ButtonEditOk.IsVisible = visibility;
+        ButtonEditCancel.IsVisible = visibility;
     }
 
     #endregion

@@ -8,7 +8,7 @@ public partial class FilteredEntrySimply
     
     public event EventHandler PickerIndexChanged;
     
-    public Client Client { get; set; }
+    public Client Client { get; private set; }
     
     public FilteredEntrySimply()
     {

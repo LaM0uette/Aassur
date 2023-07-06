@@ -28,7 +28,7 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
@@ -49,7 +49,7 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Tertiary}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="17"/>
-        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="HeightRequest" Value="44"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
@@ -72,7 +72,7 @@
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontAttributes" Value="Bold"/>
-        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="HeightRequest" Value="44"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
@@ -175,7 +175,7 @@
     <Style TargetType="Frame">
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Tertiary}}" />
-        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="CornerRadius" Value="6" />
     </Style>
 
     <Style TargetType="ImageButton">

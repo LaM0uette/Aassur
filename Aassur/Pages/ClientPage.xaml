@@ -10,16 +10,19 @@
 
         <!-- Return button -->
         <Button Text="Retour"
-                HeightRequest="30"
-                BackgroundColor="Transparent"
+                HeightRequest="24"
+                Margin="10, 10, 0, 5"
+                FontSize="15"
+                FontAttributes="Bold"
+                BackgroundColor="{StaticResource Tertiary}"
+                TextColor="{StaticResource Secondary}"
                 BorderColor="Transparent"
                 BorderWidth="0"
                 HorizontalOptions="Start"
                 VerticalOptions="Start"
-                TextColor="{StaticResource Black}"
                 Clicked="ButtonReturn_OnClicked" />
 
-        <Grid Margin="10" VerticalOptions="FillAndExpand">
+        <Grid Margin="10, 0, 10, 10" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -82,11 +85,11 @@
                     </Frame>
                     
                     <!-- Edit ok Button -->
-                    <Button Style="{StaticResource ButtonEdit}" WidthRequest="100" Background="{StaticResource Green}"
-                            Clicked="ButtonEditOk_OnClicked" Text="Valider" />
+                    <Button x:Name="ButtonEditOk" Style="{StaticResource ButtonEdit}" WidthRequest="100" Background="{StaticResource Green}"
+                            Clicked="ButtonEditOk_OnClicked" Text="Valider" IsVisible="False" />
                     
-                    <Button Style="{StaticResource ButtonEdit}" WidthRequest="100" Background="{StaticResource Red}"
-                            Clicked="ButtonEditCancel_OnClicked" Text="Annuler" />
+                    <Button x:Name="ButtonEditCancel" Style="{StaticResource ButtonEdit}" WidthRequest="100" Background="{StaticResource Red}"
+                            Clicked="ButtonEditCancel_OnClicked" Text="Annuler" IsVisible="False" />
                     
                 </StackLayout>
 
