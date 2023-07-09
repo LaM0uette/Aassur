@@ -33,7 +33,7 @@ public partial class FicheClientView
     {
         InitializeComponent();
         
-        StackLayoutCoordonnees.Children.Add(FormFactory.CreateForm(client, TITLES_COORD));
-        StackLayoutProfil.Children.Add(FormFactory.CreateForm(client, TITLES_PROFIL));
+        StackLayoutCoordonnees.Children.Add(new CoordFormFactory().CreateForm(client, TITLES_COORD));
+        StackLayoutProfil.Children.Add(new ProfilFormFactory().CreateForm(client, TITLES_PROFIL));
     }
 }
