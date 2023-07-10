@@ -12,4 +12,8 @@ public class ProfilFormFactory : FormFactory
 
         return grid;
     }
+    
+    protected override void CreateLabels(Layout grid, Client client)
+    {
+    }
 }

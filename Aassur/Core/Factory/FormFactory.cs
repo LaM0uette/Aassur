@@ -7,10 +7,17 @@ public abstract class FormFactory
 {
     #region Statements
 
+    protected struct ClientData
+    {
+        private string Address;
+    }
+    
     private const int HEIGHT_ROW = 24;
     private const int WIDTH_COLUMNS = 100;
 
     public abstract Grid CreateForm(Client client, List<string> titles);
+
+    protected abstract void CreateLabels(Layout grid, Client client);
 
     #endregion
 
@@ -39,13 +46,6 @@ public abstract class FormFactory
         }
     }
     
-    protected static void CreateLabels(Layout grid, Client client)
-    {
-        var address = App.DbData.Address.FirstOrDefault(address => address.Id == client.AddressId)?.Name;
-        var labelAddress = CreateLabel(address);
-        AddElement(grid, labelAddress, 0, 1);
-    }
-    
     private static Label CreateTitleLabel(string text)
     {
         return new Label
@@ -56,7 +56,7 @@ public abstract class FormFactory
         };
     }
     
-    private static Label CreateLabel(string text)
+    protected static Label CreateLabel(string text)
     {
         return new Label
         {
@@ -66,7 +66,7 @@ public abstract class FormFactory
         };
     }
     
-    private static void AddElement(Layout grid, VisualElement element, int row, int column)
+    protected static void AddElement(Layout grid, VisualElement element, int row, int column)
     {
         Grid.SetRow(element, row);
         Grid.SetColumn(element, column);
