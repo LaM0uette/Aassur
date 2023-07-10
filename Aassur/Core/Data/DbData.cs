@@ -11,6 +11,7 @@ public class DbData
     public IEnumerable<Address> Address { get; private set; } = new List<Address>();
     public IEnumerable<ListCivility> ListCivility { get; private set; } = new List<ListCivility>();
     public IEnumerable<ListCity> ListCity { get; private set; } = new List<ListCity>();
+    public IEnumerable<ListFamilyStatus> ListFamilyStatus { get; private set; } = new List<ListFamilyStatus>();
     public IEnumerable<ListNews> ListNews { get; private set; } = new List<ListNews>();
 
     public DbData()
@@ -31,6 +32,7 @@ public class DbData
         Address = await SqliteService.Address.GetAllAsync();
         ListCivility = await SqliteService.ListCivility.GetAllAsync();
         ListCity = await SqliteService.ListCity.GetAllAsync();
+        ListFamilyStatus = await SqliteService.ListFamilyStatus.GetAllAsync();
         ListNews = await SqliteService.ListNews.GetAllAsync();
     }
     
@@ -40,6 +42,7 @@ public class DbData
                && !App.DbData.Address.Any() 
                && !App.DbData.ListCivility.Any() 
                && !App.DbData.ListCity.Any()
+               && !App.DbData.ListFamilyStatus.Any()
                && !App.DbData.ListNews.Any();
     }
 }

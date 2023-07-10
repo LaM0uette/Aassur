@@ -9,7 +9,20 @@ public abstract class FormFactory
 
     protected struct ClientData
     {
-        private string Address;
+        public string Address;
+        public string PostalCode;
+        public string City;
+        public string MobileNumber;
+        public string FixeNumber;
+        public string CountryOfResidence;
+        public string DateOfBirth;
+        public string FamilyStatus;
+        public string Function;
+        public string Foyer;
+        public string Hobbies;
+        public int? RelatedCustomersClientId;
+        public string CreationDate;
+        public string Origin;
     }
     
     private const int HEIGHT_ROW = 24;
@@ -71,6 +84,31 @@ public abstract class FormFactory
         Grid.SetRow(element, row);
         Grid.SetColumn(element, column);
         grid.Children.Add(element);
+    }
+    
+    protected static ClientData GetClientData(Client client)
+    {
+        var address = App.DbData.Address.FirstOrDefault(address => address.Id == client.AddressId);
+        var city = App.DbData.ListCity.FirstOrDefault(city => city.Id == client.CityId);
+        var family = App.DbData.ListFamilyStatus.FirstOrDefault(family => family.Id == client.FamilyStatusId);
+        
+        return new ClientData
+        {
+            Address = address?.Name,
+            PostalCode = city?.PostalCode,
+            City = city?.Name,
+            MobileNumber = client.MobileNumber,
+            FixeNumber = client.FixeNumber,
+            CountryOfResidence = client.CountryOfResidence,
+            DateOfBirth = client.DateOfBirth,
+            FamilyStatus = family?.Name,
+            Function = client.Function,
+            Foyer = client.Foyer,
+            Hobbies = client.Hobbies,
+            RelatedCustomersClientId = client.RelatedCustomersClientId,
+            CreationDate = client.CreationDate,
+            Origin = client.Origin
+        };
     }
 
     #endregion

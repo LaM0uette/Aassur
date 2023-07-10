@@ -15,15 +15,15 @@ public class CoordFormFactory : FormFactory
     
     protected override void CreateLabels(Layout grid, Client client)
     {
-        var address = App.DbData.Address.FirstOrDefault(address => address.Id == client.AddressId)?.Name;
-        var labelAddress = CreateLabel(address);
+        var clientData = GetClientData(client);
+        
+        var labelAddress = CreateLabel(clientData.Address);
         AddElement(grid, labelAddress, 0, 1);
         
-        var city = App.DbData.ListCity.FirstOrDefault(city => city.Id == client.CityId);
-        var labelCodePostal = CreateLabel(city?.PostalCode);
+        var labelCodePostal = CreateLabel(clientData.PostalCode);
         AddElement(grid, labelCodePostal, 1, 1);
         
-        var labelCity = CreateLabel(city?.Name);
+        var labelCity = CreateLabel(clientData.City);
         AddElement(grid, labelCity, 2, 1);
         
         var labelMobile = CreateLabel(client.MobileNumber);
