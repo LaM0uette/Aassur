@@ -112,6 +112,7 @@ public partial class ClientPage
     private void OnPickerIndexChanged(object sender, EventArgs e)
     {
         _client = FilteredEntrySimply.Client;
+        ChangeFrameView(new FicheClientView(_client));
     }
 
     private void ChangeFrameView(Microsoft.Maui.Controls.View view)

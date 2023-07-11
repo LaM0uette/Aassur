@@ -111,16 +111,20 @@ public abstract class FormFactory
         var family = App.DbData.ListFamilyStatus.FirstOrDefault(family => family.Id == client.FamilyStatusId);
 
         var relatedClients = new List<string>();
-        if (client.RelatedClientId.Contains(':'))
+        
+        if (client.RelatedClientId != null)
         {
-            relatedClients.AddRange(client.RelatedClientId
-                .Split(':')
-                .Select(relatedClient =>
-                    App.DbData.Clients.FirstOrDefault(c => c.Id == int.Parse(relatedClient))).Select(c => c?.FullName));
-        }
-        else
-        {
-            relatedClients.Add(App.DbData.Clients.FirstOrDefault(c => c.Id == int.Parse(client.RelatedClientId))?.FullName);
+            if (client.RelatedClientId.Contains(':'))
+            {
+                relatedClients.AddRange(client.RelatedClientId
+                    .Split(':')
+                    .Select(relatedClient =>
+                        App.DbData.Clients.FirstOrDefault(c => c.Id == int.Parse(relatedClient))).Select(c => c?.FullName));
+            }
+            else
+            {
+                relatedClients.Add(App.DbData.Clients.FirstOrDefault(c => c.Id == int.Parse(client.RelatedClientId))?.FullName);
+            }
         }
 
         return new ClientData
@@ -137,7 +141,7 @@ public abstract class FormFactory
             Function = client.Function,
             Foyer = client.Foyer,
             Hobbies = client.Hobbies,
-            RelatedClientId = string.Join(", ", relatedClients),
+            RelatedClientId = relatedClients.Count <= 0 ? "" : string.Join(", ", relatedClients),
             CreationDate = client.CreationDate,
             Origin = client.Origin,
             LastContactDate = ""
