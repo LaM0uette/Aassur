@@ -23,7 +23,7 @@ public class Client : IIdentifiable
     public string Function { get; set; }
     public string Foyer { get; set; }
     public string Hobbies { get; set; }
-    [Indexed] public int? RelatedCustomersClientId { get; set; }
+    public string RelatedClientId { get; set; }
     public string CreationDate { get; set; }
     public string LastModificationDate { get; set; }
     public string Origin { get; set; }

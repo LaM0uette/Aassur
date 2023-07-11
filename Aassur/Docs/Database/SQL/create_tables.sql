@@ -29,7 +29,7 @@ CREATE TABLE `Client`
     `Function`                 varchar,
     `Foyer`                    varchar,
     `Hobbies`                  varchar,
-    `RelatedCustomersClientId` integer,
+    `RelatedClientId`          varchar,
     `CreationDate`             text,
     `LastModificationDate`     text,
     `Origin`                   varchar,
@@ -38,8 +38,7 @@ CREATE TABLE `Client`
     foreign key (`TypeClientId`) references `ListTypeClient` (`Id`),
     foreign key (`AddressId`) references `Address` (`Id`),
     foreign key (`CityId`) references `ListCity` (`Id`),
-    foreign key (`FamilyStatusId`) references `ListFamilyStatus` (`Id`),
-    foreign key (`RelatedCustomersClientId`) references `Client` (`Id`)
+    foreign key (`FamilyStatusId`) references `ListFamilyStatus` (`Id`)
 );
 CREATE INDEX Idx_Client_Id ON Client (Id);
 CREATE INDEX Idx_Client_CivilityId ON Client (CivilityId);
@@ -47,7 +46,6 @@ CREATE INDEX Idx_Client_TypeClientId ON Client (TypeClientId);
 CREATE INDEX Idx_Client_AddressId ON Client (AddressId);
 CREATE INDEX Idx_Client_CityId ON Client (CityId);
 CREATE INDEX Idx_Client_FamilyStatusId ON Client (FamilyStatusId);
-CREATE INDEX Idx_Client_RelatedCustomersClientId ON Client (RelatedCustomersClientId);
 
 CREATE TABLE `Contract`
 (

@@ -26,13 +26,13 @@ public class CoordFormFactory : FormFactory
         var labelCity = CreateLabel(clientData.City);
         AddElement(grid, labelCity, 2, 1);
         
-        var labelMobile = CreateLabel(client.MobileNumber);
+        var labelMobile = CreateLabel(clientData.MobileNumber);
         AddElement(grid, labelMobile, 3, 1);
         
-        var labelFixe = CreateLabel(client.FixeNumber);
+        var labelFixe = CreateLabel(clientData.FixeNumber);
         AddElement(grid, labelFixe, 4, 1);
         
-        var labelMail = CreateLabel(client.Mail);
+        var labelMail = CreateLabel(clientData.Mail);
         AddElement(grid, labelMail, 5, 1);
     }
 }

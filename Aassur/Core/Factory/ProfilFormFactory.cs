@@ -26,22 +26,22 @@ public class ProfilFormFactory : FormFactory
         var labelFamilyStatus = CreateLabel(clientData.FamilyStatus);
         AddElement(grid, labelFamilyStatus, 2, 1);
         
-        var labelFunction = CreateLabel(client.Function);
+        var labelFunction = CreateLabel(clientData.Function);
         AddElement(grid, labelFunction, 3, 1);
         
-        var labelFoyer = CreateLabel(client.Foyer);
+        var labelFoyer = CreateLabel(clientData.Foyer);
         AddElement(grid, labelFoyer, 4, 1);
         
-        var labelHobbies = CreateLabel(client.Hobbies);
+        var labelHobbies = CreateLabel(clientData.Hobbies);
         AddElement(grid, labelHobbies, 5, 1);
         
-        var labelRelatedCustomersClientId = CreateLabel(client.RelatedCustomersClientId.ToString());
+        var labelRelatedCustomersClientId = CreateLabel(clientData.RelatedClientId);
         AddElement(grid, labelRelatedCustomersClientId, 6, 1);
         
-        var labelCreationDate = CreateLabel(client.CreationDate);
+        var labelCreationDate = CreateLabel(clientData.CreationDate);
         AddElement(grid, labelCreationDate, 7, 1);
         
-        var labelOrigin = CreateLabel(client.Origin);
+        var labelOrigin = CreateLabel(clientData.Origin);
         AddElement(grid, labelOrigin, 8, 1);
     }
 }
