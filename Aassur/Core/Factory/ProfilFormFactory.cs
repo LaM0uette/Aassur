@@ -43,5 +43,8 @@ public class ProfilFormFactory : FormFactory
         
         var labelOrigin = CreateLabel(clientData.Origin);
         AddElement(grid, labelOrigin, 8, 1);
+        
+        var labelLastContactDate = CreateLabel(clientData.LastContactDate);
+        AddElement(grid, labelLastContactDate, 9, 1);
     }
 }

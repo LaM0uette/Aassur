@@ -24,6 +24,7 @@ public abstract class FormFactory
         public string RelatedClientId;
         public string CreationDate;
         public string Origin;
+        public string LastContactDate;
     }
 
     public abstract Grid CreateForm(Client client, List<string> titles);
@@ -47,7 +48,7 @@ public abstract class FormFactory
             grid.RowDefinitions.Add(new RowDefinition {Height = new GridLength(1, GridUnitType.Auto)});
 
         grid.ColumnDefinitions.Add(new ColumnDefinition {Width = new GridLength(1, GridUnitType.Auto)});
-        grid.ColumnDefinitions.Add(new ColumnDefinition {Width = new GridLength(1, GridUnitType.Auto)});
+        grid.ColumnDefinitions.Add(new ColumnDefinition {Width = new GridLength(1, GridUnitType.Star)});
 
         return grid;
     }
@@ -69,20 +70,30 @@ public abstract class FormFactory
             Text = $"{text} : ",
             FontSize = 16,
             HorizontalTextAlignment = TextAlignment.End,
+            VerticalTextAlignment = TextAlignment.Center,
+            VerticalOptions = LayoutOptions.Center,
             TextColor = StaticVar.WhiteColor,
             FontAttributes = FontAttributes.Bold
         };
     }
 
-    protected static Label CreateLabel(string text)
+    protected static Frame CreateLabel(string text)
     {
-        return new Label
+        return new Frame
         {
-            Text = text,
-            FontSize = 16,
-            WidthRequest = 300,
-            LineBreakMode = LineBreakMode.WordWrap,
-            TextColor = StaticVar.WhiteColor
+            Content = new Label
+            {
+                Text = text,
+                FontSize = 16,
+                MinimumWidthRequest = 200,
+                LineBreakMode = LineBreakMode.WordWrap,
+                TextColor = StaticVar.WhiteColor,
+                VerticalTextAlignment = TextAlignment.Center,
+            },
+            CornerRadius = 8,
+            Padding = new Thickness(8, 4, 8, 4),
+            BackgroundColor = StaticVar.SecondaryColor,
+            VerticalOptions = LayoutOptions.Center
         };
     }
 
@@ -128,7 +139,8 @@ public abstract class FormFactory
             Hobbies = client.Hobbies,
             RelatedClientId = string.Join(", ", relatedClients),
             CreationDate = client.CreationDate,
-            Origin = client.Origin
+            Origin = client.Origin,
+            LastContactDate = ""
         };
     }
 
