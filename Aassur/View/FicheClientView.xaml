@@ -4,7 +4,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aassur.View.FicheClientView">
     
-    <Grid Padding="10" ColumnSpacing="5" RowSpacing="5" Background="{StaticResource Tertiary}">
+    <Grid Padding="60, 40, 60, 0" 
+          ColumnSpacing="60" 
+          RowSpacing="20" 
+          Background="{StaticResource Tertiary}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -15,19 +18,25 @@
         </Grid.ColumnDefinitions>
         
         <!-- Coordonnees -->
-        <StackLayout x:Name="StackLayoutCoordonnees" Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+        <StackLayout x:Name="StackLayoutCoordonnees" Grid.Row="0" Grid.Column="0" 
+                     Orientation="Vertical"
+                     HorizontalOptions="Start">
             <Label Text="Coordonnées" FontSize="30" FontAttributes="Bold" VerticalOptions="End"/>
             <Line StrokeThickness="2" BackgroundColor="{StaticResource Secondary}"/>
         </StackLayout>
         
         <!-- Note -->
-        <StackLayout x:Name="StackLayoutNote" Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+        <StackLayout x:Name="StackLayoutNote" Grid.Row="1" Grid.Column="0" 
+                     Orientation="Vertical"
+                     HorizontalOptions="Start">
             <Label Text="Mémo" FontSize="30" FontAttributes="Bold" VerticalOptions="End"/>
             <Line StrokeThickness="2" BackgroundColor="{StaticResource Secondary}"/>
         </StackLayout>
         
         <!-- Profil -->
-        <StackLayout x:Name="StackLayoutProfil" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Orientation="Vertical">
+        <StackLayout x:Name="StackLayoutProfil" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" 
+                     Orientation="Vertical"
+                     HorizontalOptions="Start">
             <Label Text="Profil" FontSize="30" FontAttributes="Bold" VerticalOptions="End"/>
             <Line StrokeThickness="2" BackgroundColor="{StaticResource Secondary}"/>
         </StackLayout>

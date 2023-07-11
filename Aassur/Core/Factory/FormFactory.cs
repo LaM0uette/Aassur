@@ -26,9 +26,6 @@ public abstract class FormFactory
         public string Origin;
     }
 
-    private const int HEIGHT_ROW = 24;
-    private const int WIDTH_COLUMNS = 100;
-
     public abstract Grid CreateForm(Client client, List<string> titles);
 
     protected abstract void CreateLabels(Layout grid, Client client);
@@ -39,13 +36,18 @@ public abstract class FormFactory
 
     protected static Grid CreateGrid(int nbRows)
     {
-        var grid = new Grid();
+        var grid = new Grid
+        {
+            ColumnSpacing = 10,
+            RowSpacing = 12,
+            Margin = new Thickness(0, 20, 0, 0)
+        };
 
         for (var i = 0; i < nbRows; i++)
-            grid.RowDefinitions.Add(new RowDefinition {Height = HEIGHT_ROW});
+            grid.RowDefinitions.Add(new RowDefinition {Height = new GridLength(1, GridUnitType.Auto)});
 
         grid.ColumnDefinitions.Add(new ColumnDefinition {Width = new GridLength(1, GridUnitType.Auto)});
-        grid.ColumnDefinitions.Add(new ColumnDefinition {Width = WIDTH_COLUMNS});
+        grid.ColumnDefinitions.Add(new ColumnDefinition {Width = new GridLength(1, GridUnitType.Auto)});
 
         return grid;
     }
@@ -65,6 +67,8 @@ public abstract class FormFactory
         return new Label
         {
             Text = $"{text} : ",
+            FontSize = 16,
+            HorizontalTextAlignment = TextAlignment.End,
             TextColor = StaticVar.WhiteColor,
             FontAttributes = FontAttributes.Bold
         };
@@ -75,7 +79,9 @@ public abstract class FormFactory
         return new Label
         {
             Text = text,
-            WidthRequest = 200,
+            FontSize = 16,
+            WidthRequest = 300,
+            LineBreakMode = LineBreakMode.WordWrap,
             TextColor = StaticVar.WhiteColor
         };
     }
