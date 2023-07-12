@@ -19,7 +19,7 @@
 TestResults/
 
 # SQLite database files (if used)
-*.db
+#*.db
 
 # NuGet packages
 *.nupkg
